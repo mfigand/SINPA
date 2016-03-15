@@ -1,0 +1,57 @@
+<section class="company_background">
+
+<h2 class="salute"><%= current_company.name %> Company </h2>
+
+<div class="row">
+
+  <section class="col-md-5 statistics2 font_2">
+    <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
+      View my Branches
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Branches</h4>
+          </div>
+          <div class="modal-body">
+            <li>Branches list</li>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
+            <button type="button" class="waves-effect waves-light btn" data-dismiss="">Add Branch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col-md-6 statistics2 font_2">
+    <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#myModal2">
+      View my rewards
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModal2Label">Rewards</h4>
+          </div>
+          <div class="modal-body">
+            <li>Rewards list</li>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
+            <button type="button" class="waves-effect waves-light btn" data-dismiss="">Add Reward</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</section>

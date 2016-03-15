@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
 <body>
 
@@ -30,8 +30,8 @@
 
       <% if user_signed_in? %>
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></li>
-        <li style="padding-top: 15px" ><%= current_user.name %> it's logged-in</li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></li>
+        <li class="loggin_name"><%= current_user.name %> it's logged-in</li>
       </ul>
       <% else %>
       <ul class="nav navbar-nav">

@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ nav {
+   color: #333 !important;
+}
+.loggin_name{
+  line-height: 50px !important;
+}
