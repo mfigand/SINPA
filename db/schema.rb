@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315135546) do
+ActiveRecord::Schema.define(version: 20160315152708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "branches", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "schedule"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "url"
+    t.integer  "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,10 +46,29 @@ ActiveRecord::Schema.define(version: 20160315135546) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "phone"
+    t.integer  "branches"
+    t.text     "description"
+    t.string   "url"
   end
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "kms_cost"
+    t.string   "redeemed"
+    t.integer  "user_id"
+    t.integer  "branch_id"
+    t.integer  "reward_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "coupons", ["branch_id"], name: "index_coupons_on_branch_id", using: :btree
+  add_index "coupons", ["reward_id"], name: "index_coupons_on_reward_id", using: :btree
+  add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
 
   create_table "employees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -49,10 +84,39 @@ ActiveRecord::Schema.define(version: 20160315135546) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "branch_id"
+    t.string   "phone"
   end
 
+  add_index "employees", ["branch_id"], name: "index_employees_on_branch_id", using: :btree
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true, using: :btree
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
+
+  create_table "races", force: :cascade do |t|
+    t.integer  "kms"
+    t.datetime "sync_date"
+    t.string   "source"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "races", ["user_id"], name: "index_races_on_user_id", using: :btree
+
+  create_table "rewards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "kms_cost"
+    t.string   "code"
+    t.text     "description"
+    t.datetime "valid_from"
+    t.datetime "valid_through"
+    t.integer  "available_units"
+    t.integer  "branch_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "rewards", ["branch_id"], name: "index_rewards_on_branch_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -68,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160315135546) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "kms"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
-<body>
+<body class="container-fluid">
 
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -33,11 +33,17 @@
         <li><%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %></li>
         <li class="loggin_name"><%= current_user.name %> it's logged-in</li>
       </ul>
-      <% else %>
+      <% elsif company_signed_in? %>
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Sign_up', new_user_registration_path %></li>
-        <li><%= link_to 'Sign_in', new_user_session_path %></li>
+        <li><%= link_to 'Sign out', destroy_company_session_path, method: 'DELETE' %></li>
+        <li class="loggin_name"><%= current_company.name %> it's logged-in</li>
       </ul>
+      <% elsif employee_signed_in? %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Sign out', destroy_employee_session_path, method: 'DELETE' %></li>
+        <li class="loggin_name"><%= current_employee.name %> it's logged-in</li>
+      </ul>
+
       <% end %>
 
         <ul class="nav navbar-nav navbar-right">
@@ -68,8 +74,8 @@
   <div class="panel panel-default">
     <div class="panel-footer">
       <div class="row">
-        <div class="col-xs-3">Copy Rigth 2016 | By SinpaRun</div>
-        <div class="col-xs-9" style="text-align: right">facebook</div>
+        <div class="col-xs-6" style="text-align: left">Copy Rigth 2016 | By SinpaRun</div>
+        <div class="col-xs-6" style="text-align: right">facebook</div>
       </div>
     </div>
   </div>

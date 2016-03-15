@@ -3,4 +3,10 @@ class Company < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+   has_many :branches
+
+   validates :name, :email, uniqueness: true, presence: true, length: { maximum: 250 }
+  #  validates :password, :phone, presence: true
+
 end
