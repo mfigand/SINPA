@@ -1,0 +1,36 @@
+
+<% if @reward.errors.any? %>
+  <ul class="notification is-danger">
+    <button class="delete"></button>
+    <% @reward.errors.full_messages.each do |error| %>
+     <li><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [current_company,@branch,@reward] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10 %>
+  <br>
+  <%= f.label :kms_cost %>
+  <%= f.number_field :kms_cost, size: 10, within: 1...100%>
+  <br>
+  <%= f.label :code %>
+  <%= f.text_field :code, size: 10 %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description, size: 10 %>
+  <br>
+  <%= f.label :valid_from %>
+  <%= f.date_field :valid_from, size: 10%>
+  <br>
+  <%= f.label :valid_through %>
+  <%= f.date_field :valid_through, size: 10 %>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>
+<br>
+<a href="<%= company_branch_path(current_company.id, @branch.id) %>">Back to Branch</a>

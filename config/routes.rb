@@ -5,10 +5,20 @@ Rails.application.routes.draw do
 
   root to: 'site#home'
 
-  get 'users/profile', to: 'users#profile'
+  get 'employees/validate', to: 'employees#validate'
 
-  get 'companies/profile', to: 'companies#profile'
+  resources :users do
+    resources :races,:coupons, only: [:index]
+  end
 
-  get 'employees/profile', to: 'employees#profile'
+  resources :companies do
+    resources :branches do
+      resources :rewards, :employees
+    end
+  end
+
+  resources :employees do
+    resources :coupons
+  end
 
 end

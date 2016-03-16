@@ -1,0 +1,27 @@
+<h2 class="title is-2"><%= @branch.name%>`s info </h2>
+<br>
+
+<div class="row statistics2 font_2">
+  <section class="col-md-6">
+    <ul>
+      <li> <strong>Name:</strong> <%= "#{@branch.name}" %></li>
+      <li> <strong>Address:</strong> <%= "#{@branch.address}" %></li>
+      <li> <strong>Phone:</strong> <%= "#{@branch.phone}" %></li>
+      <li> <strong>Schedule:</strong> <%= "#{@branch.schedule}" %></li>
+      <li> <strong>City:</strong> <%= "#{@branch.city}" %></li>
+      <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
+      <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
+      <li> <strong>Url:</strong> <%= "#{@branch.url}" %></li>
+      <br>
+    </ul>
+  </section>
+
+  <section class="col-md-6">
+    <a href="<%= company_branch_employees_path(current_company.id,@branch.id) %>" class="row btn" >Employees</a>
+    <a href="<%= new_company_branch_employee_path(current_company.id,@branch.id) %>" class="row btn" >Add Employees</a>
+    <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="row btn" >Rewards</a>
+    <a href="<%= new_company_branch_reward_path(current_company.id,@branch.id) %>" class="row btn" >Add Reward</a>
+  </section>
+</div>
+<br>
+<a href="<%= company_path(current_company.id) %>">Back to Company</a>

@@ -1,0 +1,22 @@
+<h2 class="title is-2"><%= @reward.name%>`s info </h2>
+<br>
+
+<div class="row statistics2 font_2">
+  <section class="col-md-6">
+    <ul>
+      <li> <strong>Name:</strong> <%= "#{@reward.name}" %></li>
+      <li> <strong>Kms cost:</strong> <%= "#{@reward.kms_cost}" %></li>
+      <li> <strong>Code:</strong> <%= "#{@reward.code}" %></li>
+      <li> <strong>Description:</strong> <%= "#{@reward.description}" %></li>
+      <li> <strong>Valid from:</strong> <%= "#{@reward.valid_from}" %></li>
+      <li> <strong>Valid through:</strong> <%= "#{@reward.valid_through}" %></li>
+      <br>
+    </ul>
+  </section>
+
+  <section class="col-md-6">
+    <img src="foto.jpg" alt="" />
+  </section>
+</div>
+<br>
+<a href="<%= company_branch_rewards_path(current_company.id, @branch.id) %>">Back to Rewards</a>

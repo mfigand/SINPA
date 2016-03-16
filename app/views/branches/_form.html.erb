@@ -1,0 +1,42 @@
+
+<% if @branch.errors.any? %>
+  <ul class="notification is-danger">
+    <button class="delete"></button>
+    <% @branch.errors.full_messages.each do |error| %>
+     <li><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [current_company,@branch] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10 %>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address, size: 10 %>
+  <br>
+  <%= f.label :phone %>
+  <%= f.text_field :phone, size: 10 %>
+  <br>
+  <%= f.label :schedule %>
+  <%= f.text_field :schedule, size: 10 %>
+  <br>
+  <%= f.label :city %>
+  <%= f.text_field :city, step: 0.5, size: 4 %>
+  <br>
+  <%= f.label :state %>
+  <%= f.text_field :state, size: 15 %>
+  <br>
+  <%= f.label :country %>
+  <%= f.text_field :country, size: 15 %>
+  <br>
+  <%= f.label :url %>
+  <%= f.text_field :url, size: 15 %>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>
+<br>
+<%= link_to("Back to Company", company_path(current_company.id)) %>

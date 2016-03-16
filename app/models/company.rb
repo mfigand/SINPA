@@ -7,6 +7,9 @@ class Company < ActiveRecord::Base
    has_many :branches
 
    validates :name, :email, uniqueness: true, presence: true, length: { maximum: 250 }
-  #  validates :password, :phone, presence: true
+   validates :password, :phone, presence: true
+  #  validates :description, presence: true
+
+
 
 end

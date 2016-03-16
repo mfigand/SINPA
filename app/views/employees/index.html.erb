@@ -1,0 +1,18 @@
+<h2 class="title is-2"><%= @branch.name%>`s employees </h2>
+<br>
+
+
+<ul>
+  <% @employees.each_with_index do |employee, index| %>
+    <li> <strong>Name:</strong> <%= "#{employee.name}" %></li>
+    <li> <strong>Email:</strong> <%= "#{employee.email}" %></li>
+    <li> <strong>Phone:</strong> <%= "#{employee.phone}" %></li>
+    <li><a href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>">Show</a> - <a href="#">Delete</a></li>
+    <br>
+  <% end %>
+</ul>
+
+<a href="<%= new_company_branch_employee_path(current_company.id, @branch.id) %>" class="row btn" >Add Employee</a>
+<br>
+
+<a href="<%= company_branch_path(current_company.id, @branch.id) %>">Back to Branch</a>

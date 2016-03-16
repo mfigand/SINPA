@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if user_signed_in?
-      users_profile_path
+      user_path(current_user.id)
     elsif company_signed_in?
-     companies_profile_path
+     company_path(current_company.id)
    elsif employee_signed_in?
-     employees_profile_path
+     employees_validate_path
    end
  end
 

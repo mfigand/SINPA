@@ -1,0 +1,16 @@
+<h2 class="title is-2"><%= @branch.name%>`s rewards </h2>
+<br>
+
+
+<ul>
+  <% @rewards.each_with_index do |reward, index| %>
+    <li> <strong>Name:</strong> <%= "#{reward.name}" %></li>
+    <li><a href="<%= company_branch_reward_path(current_company.id, @branch.id, reward.id) %>">Show</a> - <a href="#">Delete</a></li>
+    <br>
+  <% end %>
+</ul>
+
+<a href="<%= new_company_branch_reward_path(current_company.id, @branch.id) %>" class="row btn" >Add Reward</a>
+<br>
+
+<a href="<%= company_branch_path(current_company.id, @branch.id) %>">Back to Branch</a>

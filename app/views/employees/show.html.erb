@@ -1,0 +1,19 @@
+<h2 class="title is-2"><%= @employee.name%>`s info </h2>
+<br>
+
+<div class="row statistics2 font_2">
+  <section class="col-md-6">
+    <ul>
+      <li> <strong>Name:</strong> <%= "#{@employee.name}" %></li>
+      <li> <strong>Email:</strong> <%= "#{@employee.email}" %></li>
+      <li> <strong>Phone:</strong> <%= "#{@employee.phone}" %></li>
+      <br>
+    </ul>
+  </section>
+
+  <section class="col-md-6">
+    <a href="<%=  %>" class="row btn" >Validated coupons</a>
+  </section>
+</div>
+<br>
+<a href="<%= company_branch_employees_path(current_company.id, @branch.id) %>">Back to Employees</a>
