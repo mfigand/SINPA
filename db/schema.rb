@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 20160316163204) do
     t.integer  "kms_cost"
     t.string   "redeemed"
     t.integer  "user_id"
-    t.integer  "branch_id"
+    t.integer  "employee_id"
     t.integer  "reward_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "coupons", ["branch_id"], name: "index_coupons_on_branch_id", using: :btree
+  add_index "coupons", ["employee_id"], name: "index_coupons_on_employee_id", using: :btree
   add_index "coupons", ["reward_id"], name: "index_coupons_on_reward_id", using: :btree
   add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
 

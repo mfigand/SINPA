@@ -29,7 +29,12 @@
 .js-btn-runkeeper{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/runkeeper_icon.png");
+}
+
+.js-btn-runkeeper img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
 }
 
 .nikerunning{
@@ -37,27 +42,53 @@
   height: 50px;
   background-image: url("/assets/nike.png");
 }
+.nikerunning img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
 
 .endomondo{
   width: 50px;
   height: 50px;
   background-image: url("/assets/endomondo.jpg");
 }
+.endomondo img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
 
-.sporttracker{
+.sportstracker{
   width: 50px;
   height: 50px;
   background-image: url("/assets/sportstracker.png");
 }
+.sportstracker img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
 
 .runtastic{
   width: 50px;
   height: 50px;
   background-image: url("/assets/runtastic.png");
 }
+.runtastic img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
 
 .tomtom{
   width: 50px;
   height: 50px;
   background-image: url("/assets/tomtom.png");
+}
+.tomtom img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
 }

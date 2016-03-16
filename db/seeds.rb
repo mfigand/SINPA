@@ -21,10 +21,10 @@ casa_manolo, cines_ideal, lalatina_teather, bikers = Company.create([
 ])
 
 coupon1, coupon2, coupon3 = Coupon.create([
-  {code: 'abc1', kms_cost: 10, redeemed: 'charged', user_id: 1, branch_id: 1, reward_id: 1},
-  {code: 'abc2', kms_cost: 40, redeemed: 'charged', user_id: 1, branch_id: 2, reward_id: 2},
-  {code: 'abc3', kms_cost: 50, redeemed: 'pending', user_id: 2, branch_id: 4, reward_id: 3},
-  {code: 'abc4', kms_cost: 20, redeemed: 'pending', user_id: 3, branch_id: 5, reward_id: 4}
+  {code: 'abc1', kms_cost: 10, redeemed: 'charged', user_id: 1, employee_id: 1, reward_id: 1},
+  {code: 'abc2', kms_cost: 40, redeemed: 'charged', user_id: 1, employee_id: 2, reward_id: 2},
+  {code: 'abc3', kms_cost: 50, redeemed: 'pending', user_id: 2, employee_id: 4, reward_id: 3},
+  {code: 'abc4', kms_cost: 20, redeemed: 'pending', user_id: 3, employee_id: 5, reward_id: 4}
 ])
 
 juan, juana, mario, maria, jose, pepe, pedro, manu = Employee.create([
