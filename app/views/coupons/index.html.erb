@@ -1,0 +1,15 @@
+<h2 class="title is-2"><%= current_user.name%>`s coupons </h2>
+<br>
+
+
+<ul>
+  <% @coupons.each_with_index do |coupon, index| %>
+    <li><strong>Code: </strong><%= "#{coupon.code}" %>
+       - <a data-method="POST" href="">Show</a></li>
+    <br>
+  <% end %>
+</ul>
+<br>
+<a href="<%= users_rewards_path %>">Back to rewards</a>
+<br>
+<a href="<%= user_path(current_user) %>">Back to Profile</a>

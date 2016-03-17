@@ -21,21 +21,29 @@ casa_manolo, cines_ideal, lalatina_teather, bikers = Company.create([
 ])
 
 coupon1, coupon2, coupon3 = Coupon.create([
-  {code: 'abc1', kms_cost: 10, redeemed: 'charged', user_id: 1, employee_id: 1, reward_id: 1},
-  {code: 'abc2', kms_cost: 40, redeemed: 'charged', user_id: 1, employee_id: 2, reward_id: 2},
-  {code: 'abc3', kms_cost: 50, redeemed: 'pending', user_id: 2, employee_id: 4, reward_id: 3},
-  {code: 'abc4', kms_cost: 20, redeemed: 'pending', user_id: 3, employee_id: 5, reward_id: 4}
+  {code: 'una1', kms_cost: 10, redeemed: 'pending', user_id: 1, employee_id: 1, reward_id: 1},
+  {code: 'una2', kms_cost: 40, redeemed: 'pending', user_id: 1, employee_id: 2, reward_id: 2},
+  {code: 'una3', kms_cost: 50, redeemed: 'pending', user_id: 2, employee_id: 4, reward_id: 3},
+  {code: 'una4', kms_cost: 20, redeemed: 'pending', user_id: 3, employee_id: 5, reward_id: 4}
 ])
+
+1.upto(25) do |index|
+  coupon = Coupon.create(
+  code: "#{index}",
+  kms_cost: 10,
+  redeemed: 'pending',
+  )
+end
 
 juan, juana, mario, maria, jose, pepe, pedro, manu = Employee.create([
   {name: 'Juan', email: 'juan@gmail.com', branch_id: 1, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
   {name: 'Juana', email: 'juana@gmail.com', branch_id: 1,  password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'mario', email: 'mario@gmail.com', branch_id: 2, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'maria', email: 'maria@gmail.com', branch_id: 3, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'jose', email: 'jose@gmail.com', branch_id: 4, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'pepe', email: 'pepe@gmail.com', branch_id: 5, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'pedro', email: 'pedro@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
-  {name: 'manu', email: 'manu@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'}
+  {name: 'Mario', email: 'mario@gmail.com', branch_id: 2, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
+  {name: 'Maria', email: 'maria@gmail.com', branch_id: 3, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
+  {name: 'Jose', email: 'jose@gmail.com', branch_id: 4, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
+  {name: 'Pepe', email: 'pepe@gmail.com', branch_id: 5, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
+  {name: 'Pedro', email: 'pedro@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
+  {name: 'Manu', email: 'manu@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'}
 ])
 
 

@@ -1,0 +1,14 @@
+<h2 class="title is-2">Get your rewards</h2>
+<br>
+
+
+<ul>
+  <% @rewards.each_with_index do |reward, index| %>
+    <li><strong>Name: </strong><%= "#{reward.name}" %>
+       - <a href="<%= edit_coupon_path(reward.id) %>">Get</a></li>
+    <br>
+  <% end %>
+</ul>
+<br>
+
+<a href="<%= user_path(current_user)%>">Back to Profile</a>

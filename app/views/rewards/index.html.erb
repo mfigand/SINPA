@@ -4,8 +4,8 @@
 
 <ul>
   <% @rewards.each_with_index do |reward, index| %>
-    <li> <strong>Name:</strong> <%= "#{reward.name}" %></li>
-    <li><a href="<%= company_branch_reward_path(current_company.id, @branch.id, reward.id) %>">Show</a> - <a href="#">Delete</a></li>
+    <li><strong>Name: </strong><a href="<%= company_branch_reward_path(current_company.id, @branch.id, reward.id) %>"><%= "#{reward.name}" %></a>
+       - <a data-method="DELETE" href="<%= company_branch_reward_path(current_company.id, @branch.id, reward.id) %>">Delete</a></li>
     <br>
   <% end %>
 </ul>

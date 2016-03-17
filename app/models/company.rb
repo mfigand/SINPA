@@ -10,6 +10,7 @@ class Company < ActiveRecord::Base
    validates :password, presence: true
   #  validates :description, presence: true
 
+  
 
 
 end

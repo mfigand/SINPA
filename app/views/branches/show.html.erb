@@ -11,7 +11,8 @@
       <li> <strong>City:</strong> <%= "#{@branch.city}" %></li>
       <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
       <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
-      <li> <strong>Url:</strong> <%= "#{@branch.url}" %></li>
+      <li> <strong>Url:</strong><a href="<%= "#{@branch.url}" %>"> <%= "#{@branch.url}" %></a></li>
+
       <br>
     </ul>
   </section>
@@ -21,6 +22,23 @@
     <a href="<%= new_company_branch_employee_path(current_company.id,@branch.id) %>" class="row btn" >Add Employees</a>
     <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="row btn" >Rewards</a>
     <a href="<%= new_company_branch_reward_path(current_company.id,@branch.id) %>" class="row btn" >Add Reward</a>
+    <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
+      View in map
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= "#{@branch.name}" %>`s location</h4>
+      </div>
+      <div class="modal-body">
+        <%= render "location" %>
+      </div>
+      <div class="modal-footer">
+        <button href="/" type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- End Modal -->
   </section>
 </div>
 <br>

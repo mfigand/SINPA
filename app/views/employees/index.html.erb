@@ -4,10 +4,9 @@
 
 <ul>
   <% @employees.each_with_index do |employee, index| %>
-    <li> <strong>Name:</strong> <%= "#{employee.name}" %></li>
-    <li> <strong>Email:</strong> <%= "#{employee.email}" %></li>
-    <li> <strong>Phone:</strong> <%= "#{employee.phone}" %></li>
-    <li><a href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>">Show</a> - <a href="#">Delete</a></li>
+    <li> </li>
+    <li><strong>Name: </strong><a href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>"><%= "#{employee.name}" %></a>
+       - <a data-method="DELETE" href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>">Delete</a></li>
     <br>
   <% end %>
 </ul>

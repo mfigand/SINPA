@@ -28,6 +28,9 @@
   <%= f.label :valid_through %>
   <%= f.date_field :valid_through, size: 10 %>
   <br>
+  <%= f.label :available_units %>
+  <%= f.number_field :available_units, size: 10, within: 1...100 %>
+  <br>
 
   <%= f.submit 'Save' %>
 

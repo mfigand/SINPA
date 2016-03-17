@@ -25,6 +25,12 @@ class BranchesController < ApplicationController
     @branch = Branch.find(params[:id])
   end
 
+  def destroy
+    @branch = Branch.find(params[:id])
+    @branch.destroy
+    redirect_to company_path(current_company.id)
+  end
+
   private
 
   def branch_params

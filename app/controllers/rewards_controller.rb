@@ -15,6 +15,7 @@ class RewardsController < ApplicationController
     @reward = Reward.new reward_params
     @reward.branch_id = params[:branch_id]
     if @reward.save
+      Reward.create_coupon(@reward)
       flash[:notice] = "Reward created succesfully"
       redirect_to company_branch_rewards_path(current_company.id,params[:branch_id])
     else
@@ -28,10 +29,16 @@ class RewardsController < ApplicationController
     @reward = Reward.find(params[:id])
   end
 
+  def destroy
+    @reward = Reward.find(params[:id])
+    @reward.destroy
+    redirect_to company_branch_rewards_path(current_company.id,params[:branch_id])
+  end
+
   private
 
   def reward_params
-   params.require(:reward).permit(:name, :kms_cost, :code, :description, :valid_from, :valid_through)
+   params.require(:reward).permit(:name, :kms_cost, :code, :description, :valid_from, :valid_through, :available_units)
   end
 
 end

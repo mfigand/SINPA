@@ -28,10 +28,17 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   end
 
+  def destroy
+    @employee = Employee.find(params[:id])
+    @employee.destroy
+    redirect_to company_branch_employees_path(current_company.id,params[:branch_id])
+  end
+
   private
 
   def employee_params
    params.require(:employee).permit(:name, :email, :password, :phone)
   end
+
 
 end

@@ -5,10 +5,16 @@ Rails.application.routes.draw do
 
   root to: 'site#home'
 
-  get 'employees/validate', to: 'employees#validate'
+  get '/employees/validate', to: 'employees#validate'
+  get '/validate_response', to: 'employees#validate_response'
+
+  get '/find_coupon', to: 'coupons#find_coupon'
+
+  get '/users/rewards', to: 'coupons#rewards'
+  get '/users/edit_coupon/:id', to: 'coupons#edit_coupon', as: 'edit_coupon'
 
   resources :users do
-    resources :races,:coupons, only: [:index]
+    resources :races, :coupons
   end
 
   resources :companies do

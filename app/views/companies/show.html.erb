@@ -5,31 +5,20 @@
 <div class="row">
 
   <section class="col-md-12 statistics2 font_2">
-    <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
-      View my Branches
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Branches</h4>
-      </div>
-      <div class="modal-body">
-        <ul>
-          <% @branches.each_with_index do |branch, index| %>
-            <li> <strong>Name:</strong> <%= "#{branch.name}" %></li>
-            <li> <strong>Address:</strong> <%= "#{branch.address}" %></li>
-            <li><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a></li>
-            <br>
-          <% end %>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button href="/" type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
-        <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn">Add Branch</a></span>
-      </div>
-    </div>
+    <ul>
+      <% @branches.each_with_index do |branch, index| %>
+        <li> <strong>Name:</strong> <%= "#{branch.name}" %></li>
+        <li> <strong>Address:</strong> <%= "#{branch.address}" %></li>
+        <li><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
+          - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a>
+        </li>
+        <br>
+      <% end %>
+    </ul>
   </section>
+  <br>
+    <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn">Add Branch</a></span>
+  <br>
 
 </div>
 
