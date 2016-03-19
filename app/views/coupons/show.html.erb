@@ -1,0 +1,15 @@
+<h2 class="title is-2"><%= @coupon.code%>`s info </h2>
+<br>
+
+<div class="row statistics2 font_2">
+  <section class="col-md-12">
+    <ul>
+      <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
+      <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
+      <li> <strong>Redeemed:</strong> <%= "#{@coupon.redeemed}" %></li>
+      <br>
+    </ul>
+  </section>
+</div>
+<br>
+<a href="<%= user_coupons_path(current_user) %>">Back to Coupons</a>

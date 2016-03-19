@@ -8,9 +8,8 @@ class Company < ActiveRecord::Base
 
    validates :name, :email, uniqueness: true, presence: true, length: { maximum: 250 }
    validates :password, presence: true
-  #  validates :description, presence: true
 
-  
+
 
 
 end

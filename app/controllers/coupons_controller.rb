@@ -5,21 +5,25 @@ class CouponsController < ApplicationController
     @coupons = @user.coupons
   end
 
+  def show
+    @coupon = Coupon.find_by_id(params[:id])
+  end
+
   def rewards
     @rewards = Reward.all
   end
 
   def edit_coupon
     @reward = Reward.find(params[:id])
-    @available_coupons = @reward.coupons.where(user_id: nil)
-    if @available_coupons.length == 0
-      flash[:notice] = "Sorry there is no available coupons for this reward"
-      redirect_to users_rewards_path
-    else
-      @available_coupons[0].user_id = current_user.id
-      @available_coupons[0].save
-      redirect_to user_coupons_path(current_user)
-    end
+    @available_coupon = @reward.coupons.find_by_user_id(nil)
+      if @available_coupon != nil
+        @available_coupon.user_id = current_user.id
+        @available_coupon.save
+        redirect_to user_coupons_path(current_user)
+      else
+        flash[:notice] = "Sorry there is no available coupons for this reward"
+        redirect_to users_rewards_path
+      end
   end
 
   def find_coupon

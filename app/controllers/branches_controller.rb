@@ -21,6 +21,21 @@ class BranchesController < ApplicationController
     end
   end
 
+  def edit
+    @branch = Branch.find(params[:id])
+  end
+
+  def update
+    @branch = Branch.find(params[:id])
+
+  if @branch.update_attributes branch_params
+    redirect_to action: :index
+  else
+    render "edit"
+  end
+
+  end
+
   def show
     @branch = Branch.find(params[:id])
   end
