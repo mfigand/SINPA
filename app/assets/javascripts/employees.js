@@ -7,11 +7,13 @@ var validateCoupon = function (){
   $(".salute").empty();
   $(".error").empty();
   $(".response").empty();
-  var couponCode = {
-    code:$('.validate_coupon').val()
+  $(".reward_description").empty();
+  var codeToValidate = {
+    email:$('.email_to_validate').val(),
+    code:$('.code_to_validate').val()
   }
 
-  var request = $.get('/find_coupon', couponCode);
+  var request = $.get('/search_coupon', codeToValidate);
   request.done(modify_coupon);
   request.fail(couponError);
 };
@@ -26,6 +28,6 @@ function couponError(error){
 };
 
 function modify_coupon(response){
-  console.log(response);
-  $(".response").text("Your code was succesfully validated")
+  $(".response").text("Code succesfully validated")
+  $(".reward_description").text(response.description)
 };

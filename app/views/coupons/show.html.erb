@@ -1,4 +1,4 @@
-<h2 class="title is-2"><%= @coupon.code%>`s info </h2>
+<h2 class="title is-2"><%= @coupon.reward.name%>'s info </h2>
 <br>
 
 <div class="row statistics2 font_2">
@@ -7,6 +7,7 @@
       <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
       <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
       <li> <strong>Redeemed:</strong> <%= "#{@coupon.redeemed}" %></li>
+      <li> <strong>Description:</strong> <%= "#{@coupon.reward.description}" %></li>
       <br>
     </ul>
   </section>

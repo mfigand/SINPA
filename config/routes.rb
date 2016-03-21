@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   devise_for :companies
   devise_for :users
 
-  root to: 'site#home'
+  get '/users', to: 'site#users_home'
+  get '/companies', to: 'site#companies_home'
+  get '/employees', to: 'site#employees_home'
 
   get '/employees/validate', to: 'employees#validate'
   get '/validate_response', to: 'employees#validate_response'
 
-  get '/find_coupon', to: 'coupons#find_coupon'
-
+  get '/search_coupon', to: 'coupons#search_coupon'
+  get '/users/rewards_map', to: 'coupons#rewards_map'
   get '/users/rewards', to: 'coupons#rewards'
   get '/users/edit_coupon/:id', to: 'coupons#edit_coupon', as: 'edit_coupon'
 

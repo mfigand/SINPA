@@ -15,7 +15,6 @@ class RewardsController < ApplicationController
     @reward = Reward.new reward_params
     @reward.branch_id = params[:branch_id]
     if @reward.save
-      Reward.create_coupon(@reward)
       flash[:notice] = "Reward created succesfully"
       redirect_to company_branch_rewards_path(current_company.id,params[:branch_id])
     else

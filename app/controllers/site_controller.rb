@@ -1,7 +1,15 @@
 class SiteController < ApplicationController
 
 
-  def home
+  def users_home
+    check_log_session
+  end
+
+  def companies_home
+    check_log_session
+  end
+
+  def employees_home
     check_log_session
   end
 

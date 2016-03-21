@@ -49,7 +49,7 @@ class BranchesController < ApplicationController
   private
 
   def branch_params
-   params.require(:branch).permit(:name, :address, :phone, :schedule, :city, :state, :country, :url)
+   params.require(:branch).permit(:name, :address, :latitude, :longitude, :phone, :schedule, :city, :state, :country, :url)
   end
 
 end

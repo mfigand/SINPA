@@ -9,6 +9,9 @@ class CreateBranches < ActiveRecord::Migration
       t.string :state
       t.string :country
       t.string :url
+      t.string :latitude
+      t.string :longitude
+
       t.references :company, index: true
 
       t.timestamps null: false

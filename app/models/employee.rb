@@ -5,6 +5,7 @@ class Employee < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :branch
+  has_many :coupons
 
   validates :name, presence: true, length: { maximum: 250 }
   validates :email, uniqueness: true

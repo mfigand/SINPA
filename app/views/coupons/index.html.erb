@@ -1,12 +1,11 @@
-<h2 class="title is-2"><%= current_user.name%>`s coupons </h2>
+<h2 class="title is-2"><%= current_user.name%>'s coupons </h2>
 <br>
 
 
 <ul>
   <% @coupons.each_with_index do |coupon, index| %>
-    <li><strong>Code: </strong><%= "#{coupon.code}" %>
-       - <a href="<%= user_coupon_path(current_user,coupon) %>">Show</a></li>
-    <br>  
+    <li><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name} - #{coupon.code}" %></a></li>
+    <br>
   <% end %>
 </ul>
 <br>

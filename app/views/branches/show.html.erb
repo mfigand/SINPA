@@ -13,6 +13,8 @@
       <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
       <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
       <li> <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= "#{@branch.url}" %></a></li>
+      <li><span class="js-latitude" data-lat='<%= "#{@branch.latitude}" %>'> </span></li>
+      <li><span class="js-longitude" data-lon='<%= "#{@branch.longitude}" %>'></span> </li>
 
       <br>
     </ul>
@@ -23,7 +25,7 @@
     <a href="<%= new_company_branch_employee_path(current_company.id,@branch.id) %>" class="row btn" >Add Employees</a>
     <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="row btn" >Rewards</a>
     <a href="<%= new_company_branch_reward_path(current_company.id,@branch.id) %>" class="row btn" >Add Reward</a>
-    <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="js-view_map waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
       View in map
     </button>
     <!-- Modal -->
