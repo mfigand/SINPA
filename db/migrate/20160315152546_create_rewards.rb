@@ -8,6 +8,7 @@ class CreateRewards < ActiveRecord::Migration
       t.datetime :valid_from
       t.datetime :valid_through
       t.integer :available_units
+      t.string :url_img 
       t.integer :reserved_units, default: 0
       t.integer :charged_units, default: 0
       t.references :branch, index: true

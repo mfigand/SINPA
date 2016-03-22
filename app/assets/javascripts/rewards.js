@@ -1,12 +1,21 @@
+// $(document).on("ready",function(){
+//   if($('.btn-rewards_map').length){
+//     debugger
+//     $('.btn-rewards_map').on('click', function(){
+//       navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
+//     });
+//   }
+// })
 $(document).on("ready",function(){
-  if($('.js-rewards-lat').length){
-    navigator.geolocation.getCurrentPosition(onLocation, onError);
+  if($('#rewards_map2').length){
+    navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
   }
 })
 
 var map;
 
-function onLocation(position){
+function rewardsLocation(position){
+  // debugger
   latitude = [];
   $('.js-rewards-lat').each(function(){
     var lat = $(this).data('rewards-lat');
@@ -25,28 +34,28 @@ function onLocation(position){
       lng: longitude[i]
     };
     if (i = latitude.length-1){
-      createMap(position);
+      createRewardsMap(position);
     };
-     createMarker(position)
+     createRewardsMarker(position)
   }
 }
 
-function onError(err){
-  console.log("What are you using, IE 7??", err);
+function createRewardsMap(position){
+  var mapOptions = {
+    center: position,
+    zoom: 17
+  };
+  map = new google.maps.Map($('#rewards_map2')[0], mapOptions);
+  createRewardsMarker(position);
 }
 
-function createMarker(position) {
+function createRewardsMarker(position) {
   var marker = new google.maps.Marker({
    position: position,
    map: map
    });
 }
 
-function createMap(position){
-  var mapOptions = {
-    center: position,
-    zoom: 17
-  };
-  map = new google.maps.Map($('#rewards_map')[0], mapOptions);
-  createMarker(position);
+function onError(err){
+  console.log("What are you using, IE 7??", err);
 }

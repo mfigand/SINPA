@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160321101349) do
     t.datetime "valid_from"
     t.datetime "valid_through"
     t.integer  "available_units"
+    t.string   "url_img"
     t.integer  "reserved_units",  default: 0
     t.integer  "charged_units",   default: 0
     t.integer  "branch_id"

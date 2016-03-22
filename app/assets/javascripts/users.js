@@ -12,6 +12,7 @@ var getActivity = function (){
   var activity_request = $.get('/api_sinparun');
   activity_request.done(get_kms);
   activity_request.fail(activityError);
+  };
 
   function activityError(error){
     if (error.status == 406){
@@ -43,4 +44,3 @@ var getActivity = function (){
       $(".error").text("Sorry synchronization error")
     }
   };
-};
