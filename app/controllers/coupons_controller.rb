@@ -22,7 +22,6 @@ class CouponsController < ApplicationController
     @user_Kms = Km.find_by_user_id(current_user.id).kms
     @code = Coupon.generate_code
       if @reward.coupons.length < @reward.available_units && @user_Kms >= @reward.kms_cost
-        # current_user.update(kms:current_user.kms-@reward.kms_cost)
         Coupon.rest_kms(current_user,@reward)
         Coupon.rest_available_units(@reward)
         @coupon = Coupon.new(code:@code, kms_cost:@reward.kms_cost, redeemed:"reserved", user_id: current_user.id, reward_id: @reward.id)

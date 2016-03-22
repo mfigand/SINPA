@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/users', to: 'site#users_home'
   get '/companies', to: 'site#companies_home'
   get '/employees', to: 'site#employees_home'
+  get '/api_sinparun', to: 'site#activity_user'
+
+  get '/users/sync_account', to: 'users#sync_account'
 
   get '/employees/validate', to: 'employees#validate'
   get '/validate_response', to: 'employees#validate_response'
