@@ -63,9 +63,9 @@ race1, race2, race3, race4, race5, race6 = Race.create([
   {kms: 8, sync_date: Time.now.to_date-4.day, source: 'runkeeper', user_id: 3}
 ])
 
-coffee, popcorns, theater_ticket, bike_service = Reward.create([
-  {name: 'Coffee', kms_cost: 10, code: 'freecoffee', description: 'free coffee', url_img: '/images/coffee.jpg', valid_from: Time.now.to_date-15.day, valid_through: Time.now.to_date+15.day, available_units: 2, branch_id: 1},
-  {name: 'Popcorns', kms_cost: 10, code: 'freepopcorns', description: 'free popcorns', url_img: 'http://i1.wp.com/www.altcointoday.com/wp-content/uploads/2014/11/movie-popcorn.jpg?resize=701%2C467', valid_from: Time.now.to_date-10.day, valid_through: Time.now.to_date+20.day, available_units: 5, branch_id: 2},
-  {name: 'Theater ticket', kms_cost: 50, code: 'freetheater', description: 'free theater', url_img:'//www.google.es/search?q=coffe&espv=2&biw=1177&bih=614&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjs-Yrr3tTLAhXERhQKHUb5BZMQ_AUIBigB#tbm=isch&q=theater+tickets&imgrc=XrGwz857NdwU2M%3A', valid_from: Time.now.to_date-5.day, valid_through: Time.now.to_date+25.day, available_units: 4, branch_id: 4},
-  {name: 'Bike service', kms_cost: 20, code: 'freeservice', description: 'free service', url_img: '/bike.jpeg', valid_from: Time.now.to_date, valid_through: Time.now.to_date+30.day, available_units: 20, branch_id: 5}
-])
+# coffee, popcorns, theater_ticket, bike_service = Reward.create([
+#   {name: 'Coffee', kms_cost: 10, code: 'freecoffee', description: 'free coffee', url_img: '/images/coffee.jpg', valid_from: Time.now.to_date-15.day, valid_through: Time.now.to_date+15.day, available_units: 2, branch_id: 1},
+#   {name: 'Popcorns', kms_cost: 10, code: 'freepopcorns', description: 'free popcorns', url_img: 'http://i1.wp.com/www.altcointoday.com/wp-content/uploads/2014/11/movie-popcorn.jpg?resize=701%2C467', valid_from: Time.now.to_date-10.day, valid_through: Time.now.to_date+20.day, available_units: 5, branch_id: 2},
+#   {name: 'Theater ticket', kms_cost: 50, code: 'freetheater', description: 'free theater', url_img:'//www.google.es/search?q=coffe&espv=2&biw=1177&bih=614&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjs-Yrr3tTLAhXERhQKHUb5BZMQ_AUIBigB#tbm=isch&q=theater+tickets&imgrc=XrGwz857NdwU2M%3A', valid_from: Time.now.to_date-5.day, valid_through: Time.now.to_date+25.day, available_units: 4, branch_id: 4},
+#   {name: 'Bike service', kms_cost: 20, code: 'freeservice', description: 'free service', url_img: '/bike.jpeg', valid_from: Time.now.to_date, valid_through: Time.now.to_date+30.day, available_units: 20, branch_id: 5}
+# ])

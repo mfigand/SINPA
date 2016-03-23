@@ -1,58 +1,63 @@
 $(document).on("ready",function(){
   if($('.js-view_map').length){
+    var branchName = $('.js-branch-name')[0].innerText;
+    var branchRewards = [];
+    // $('.js-branchRewards').each(function(){
+    //   var reward = $(this).data('reward');
+    //   branchRewards.push(reward);
+    // })
     $('.js-view_map').on("click",branchLocation);
   }
-})
 
-var map;
+  var map;
 
-function branchLocation(){
-  var position = {
-    lat: $('.js-latitude').data('lat'),
-    lng: $('.js-longitude').data('lon')
-  };
+  function branchLocation(){
+    var position = {
+      lat: $('.js-latitude').data('lat'),
+      lng: $('.js-longitude').data('lon')
+    };
 
-  createBranchMap(position);
-}
+    createBranchMap(position);
+  }
 
-function createBranchMap(position){
-  var mapOptions = {
-    center: position,
-    zoom: 18
-  };
+  function createBranchMap(position){
+    var mapOptions = {
+      center: position,
+      zoom: 18
+    };
 
-  map = new google.maps.Map($('#branchMap')[0], mapOptions);
-  createBranchMarker(position);
-}
+    map = new google.maps.Map($('#branchMap')[0], mapOptions);
+    createBranchMarker(position);
+  }
 
-function createBranchMarker(position) {
-  var marker = new google.maps.Marker({
-   position: position,
-   map: map,
-   title:$('.js-branch-name')[0].innerText
+  function createBranchMarker(position) {
+    var marker = new google.maps.Marker({
+     position: position,
+     map: map,
+       title:$('.js-branch-name')[0].innerText
+     });
+     marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+
+  var contentString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading"></h4>'+
+        '<div id="bodyContent">'+
+        '<p><b>'+ branchName +'</b>'+
+        '<p>'+branchRewards+'</p>'+
+        '</div>'+
+        '</div>';
+
+
+  var infowindow = new google.maps.InfoWindow({
+     content: contentString
    });
-   marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-}
 
-var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading"></h4>'+
-      '<div id="bodyContent">'+
-      '<p><b>Uluru</b>'+
-      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      '(last visited June 22, 2009).</p>'+
-      '</div>'+
-      '</div>';
+  function branchLocationError(err){
+    console.log("What are you using, IE 7??", err);
+  }
 
-
-var infowindow = new google.maps.InfoWindow({
-   content: contentString
- });
-
-function branchLocationError(err){
-  console.log("What are you using, IE 7??", err);
-}
+})

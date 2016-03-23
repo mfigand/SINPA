@@ -1,21 +1,19 @@
-// $(document).on("ready",function(){
-//   if($('.btn-rewards_map').length){
-//     debugger
-//     $('.btn-rewards_map').on('click', function(){
-//       navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
-//     });
-//   }
-// })
+
 $(document).on("ready",function(){
   if($('#rewards_map2').length){
+    // debugger
     navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
   }
 })
 
 var map;
 
-function rewardsLocation(position){
-  // debugger
+function rewardsLocation(userPosition){
+  var myPosition = {
+    lat: userPosition.coords.latitude,
+    lng: userPosition.coords.longitude
+   };
+
   latitude = [];
   $('.js-rewards-lat').each(function(){
     var lat = $(this).data('rewards-lat');
@@ -28,32 +26,55 @@ function rewardsLocation(position){
     longitude.push(long);
   });
 
-  for (i = latitude.length-1; i >= 0; i--){
-    var position = {
-      lat: latitude[i],
-      lng: longitude[i]
-    };
-    if (i = latitude.length-1){
-      createRewardsMap(position);
-    };
-     createRewardsMarker(position)
-  }
+  var position = {
+    lat: latitude,
+    lng: longitude
+   };
+
+   createRewardsMap(myPosition);
+   createRewardsMarker(position);
 }
 
 function createRewardsMap(position){
+  var mapPosition = {
+    lat: position.lat[0],
+    lng: position.lng[0]
+   };
   var mapOptions = {
     center: position,
-    zoom: 17
+    zoom: 12
   };
   map = new google.maps.Map($('#rewards_map2')[0], mapOptions);
-  createRewardsMarker(position);
+
+  var pinColor = "2F76EE"; // a random blue color that i picked
+  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+              new google.maps.Size(21, 34),
+              new google.maps.Point(0,0),
+              new google.maps.Point(10, 34));
+  var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+              new google.maps.Size(40, 37),
+              new google.maps.Point(0, 0),
+              new google.maps.Point(12, 35));
+  var mapMarker = new google.maps.Marker({
+   position: position,
+   map: map,
+   icon: pinImage,
+   title: "your position",
+   shadow: pinShadow
+   });
 }
 
 function createRewardsMarker(position) {
-  var marker = new google.maps.Marker({
-   position: position,
-   map: map
-   });
+  for (i = position.lat.length-1; i >= 0; i--){
+    var markerPosition = {
+      lat: position.lat[i],
+      lng: position.lng[i]
+     };
+    var marker = new google.maps.Marker({
+     position: markerPosition,
+     map: map
+     });
+   }
 }
 
 function onError(err){

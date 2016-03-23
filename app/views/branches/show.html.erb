@@ -1,4 +1,4 @@
-<h2 class="title is-2"><%= @branch.name%>`s info </h2>
+<h2 class="title is-2"><%= @branch.name%>'s info </h2>
 <br>
 
 <div class="row statistics2 font_2">
@@ -15,6 +15,7 @@
       <li> <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= "#{@branch.url}" %></a></li>
       <li><span class="js-latitude" data-lat='<%= "#{@branch.latitude}" %>'> </span></li>
       <li><span class="js-longitude" data-lon='<%= "#{@branch.longitude}" %>'></span> </li>
+      <li><span class="js-branchRewards" data-reward='<%= "#{@branch.rewards}" %>'></span> </li>
 
       <br>
     </ul>

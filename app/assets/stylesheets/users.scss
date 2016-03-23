@@ -1,5 +1,14 @@
+.user_info{
+  background-color: #3F51B5;
+}
+
+.rewards_for_users{
+
+}
+
 .salute{
   min-height: 100px;
+  color: #DEDDDD;
 }
 
 .statistics1{
@@ -14,6 +23,10 @@
   top: -20px;
 }
 
+// .level_box{
+//   margin-left: -10px;
+// }
+
 .level{
    font-size: #DEDDDD;
    background-color: #DEDDDD;
@@ -23,6 +36,10 @@
 
 .races{
   font-size: 45px;
+  color: #DEDDDD;
+}
+
+.sync_label{
   color: #DEDDDD;
 }
 
@@ -69,7 +86,6 @@
   height: 50px;
   margin-left: -5px;
 }
-
 
 .runtastic{
   width: 50px;

@@ -17,8 +17,8 @@
   </section>
 
   <section class="col-md-6">
-    <div>
-      <img class="img_show_reward" src="<%= @reward.url_img %>" alt="sinparun" />
+    <div class="img_show_reward" >
+      <%= image_tag @reward.image.url(:medium) %>
     </div>
   </section>
 </div>

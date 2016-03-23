@@ -1,8 +1,11 @@
 <h2 class="title is-2">Rewards near your location</h2>
 <br>
-
-<div id="rewards_map2"></div>
-
+<div class="row">
+ <div class="map_container col-md-12">
+   <div id="rewards_map2"></div>
+ </div>
+</div>
+<br>
 <ul>
   <% @branches.each_with_index do |branch, index| %>
     <li><span class="js-rewards-lat" data-rewards-lat='<%= "#{branch.latitude}" %>'></span></li>
@@ -10,6 +13,5 @@
     <br>
   <% end %>
 </ul>
-<br>
 
 <a href="<%= user_path(current_user)%>">Back to Profile</a>

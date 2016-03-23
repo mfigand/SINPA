@@ -7,10 +7,15 @@
    <!-- card -->
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
-     <img class="activator" src="<%= "#{reward.url_img}" %>">
+     <div class="img_show_reward activator" >
+       <%= image_tag reward.image.url(:medium) %>
+     </div>
+
    </div>
    <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4"><%= "#{reward.name}" %><i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
+     <span class="card-title activator grey-text text-darken-4">
+       <b><%= "#{reward.available_units}" %></b> - <%= "#{reward.name}" %>
+       <i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
      <p><a href="<%= edit_coupon_path(reward.id) %>">Get</a></p>
    </div>
    <div class="card-reveal">

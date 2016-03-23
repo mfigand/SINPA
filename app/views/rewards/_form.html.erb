@@ -28,6 +28,9 @@
   <%= f.label :available_units %>
   <%= f.number_field :available_units, size: 10, within: 1...100, required:'' %>
   <br>
+  <%= f.label :image %>
+  <%= f.file_field :image, size: 10, required:'' %>
+  <br>
 
   <%= f.submit 'Save' %>
 

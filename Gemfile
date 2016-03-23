@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'pry'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem "paperclip", "~> 4.3"
 gem "bulma-rails", "~> 0.0.14"
 # Use Bootstrap
 gem 'bootstrap-sass', '~> 3.3.3'
