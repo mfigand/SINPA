@@ -12,9 +12,11 @@
         <div>
          <%= link_to('Reset filters',reset_filterrific_url) %>
        </div>
-       <div class="col s12" style="text-align: center">
+         <% if @all_rewards.length != 0%>
+       <div class="col s12" style="text-align: center, ">
          <%= render(partial: 'rewards/list', locals: { rewards: @all_rewards }) %>
        </div>
+       <% end %>
 
       </div>
     <% end %>

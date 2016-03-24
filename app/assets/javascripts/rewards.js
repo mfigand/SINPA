@@ -1,8 +1,11 @@
 $(document).on("ready",function(){
 
-  // <% js = escape_javascript(render(partial: 'rewards/list', locals: { rewards: @all_rewards })) %>
-  // $("#filterrific_results").html("<%= js %>");
-
+  if($('.input-field').length){
+    $('#filterrific_results').hide()
+  }
+  if($('#filterrific_search_query')[0].defaultValue != ""){
+    $('#filterrific_results').show()
+  }
   if($('#rewards_map2').length){
     navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
   }

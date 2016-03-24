@@ -1,16 +1,16 @@
 <div id="filterrific_results">
 
   <table>
-    <tr>
+    <span class="table_titles">
+      <th>Company</th>
+      <th>Reward</th>
+      <th>Kms cost</th>
+    </span>
 
-    </tr>
     <% @all_rewards.each do |reward| %>
       <tr>
-        <th>Company</th>
-        <td><%= reward.company.name %></td>
-        <th>Reward</th>
+        <td id="table_results" ><%= reward.company.name %></td>
         <td><%= link_to(reward.name, users_branches_map_path(reward.company.id)) %></td>
-        <th>Kms cost</th>
         <td><%= reward.kms_cost %></td>
       </tr>
     <% end %>
