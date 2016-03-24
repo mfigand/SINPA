@@ -2,7 +2,7 @@
 <br>
 
 <div class="row statistics2 font_2">
-  <section class="col-md-12">
+  <section class="col-md-6">
     <ul>
       <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
       <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
@@ -10,6 +10,12 @@
       <li> <strong>Description:</strong> <%= "#{@coupon.reward.description}" %></li>
       <br>
     </ul>
+  </section>
+
+  <section class="col-md-6">
+    <div class="img_show_reward" >
+      <%= image_tag @coupon.reward.image.url(:medium)  %>
+    </div>
   </section>
 </div>
 <br>

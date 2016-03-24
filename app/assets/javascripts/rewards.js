@@ -70,7 +70,6 @@ var map;
       infowindow.open(map, mapMarker);
     });
 
-    debugger
     var user_name = $('.js-user-name').data('user-name');
     var contentString = '<div id="content">'+
           '<div id="siteNotice">'+

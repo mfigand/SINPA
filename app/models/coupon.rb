@@ -15,20 +15,19 @@ class Coupon < ActiveRecord::Base
     end
   end
 
-  def self.rest_kms(current_user, reward)
+  def self.subtract_kms(current_user, reward)
     @user_Kms_table = Km.find_by_user_id(current_user.id)
-    @user_Kms_table.kms = @user_Kms_table.kms - reward.kms_cost
+    @user_Kms_table.sinparun_kms = @user_Kms_table.sinparun_kms - reward.kms_cost
     @user_Kms_table.save
-    # current_user.update(kms:current_user.kms-reward.kms_cost)
   end
 
-  def self.rest_available_units(reward)
+  def self.subtract_available_units(reward)
     reward.available_units = reward.available_units - 1
     reward.reserved_units = reward.reserved_units + 1
     reward.save
   end
 
-  def self.rest_reserved_units(reward)
+  def self.subtract_reserved_units(reward)
     reward.reserved_units = reward.reserved_units - 1
     reward.charged_units = reward.charged_units + 1
     reward.save

@@ -43,7 +43,7 @@ li{
   width: 10%;
 }
 
-.img_show_reward{
-  height: 200px;
-  width: auto;
+img{
+  max-height: 200px !important;
+  max-width: 200px;
 }

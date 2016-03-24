@@ -19,7 +19,7 @@ $(document).on("ready",function(){
   function createBranchMap(position){
     var mapOptions = {
       center: position,
-      zoom: 18
+      zoom: 15
     };
 
     map = new google.maps.Map($('#branchMap')[0], mapOptions);

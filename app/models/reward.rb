@@ -7,7 +7,7 @@ class Reward < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 250, minimum: 3 }, format: {with: /\A[a-zA-ZÑñ0-9\ ]+\z/}
   validates :kms_cost, :available_units, :description, :valid_from, :valid_through, :image, presence: true
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: { medium: "300x300>", small: "200x200!", xsmall: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   filterrific(
