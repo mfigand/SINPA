@@ -1,5 +1,25 @@
 <h2 class="title is-2">Get your rewards</h2>
 <br>
+<div class="row">
+  <div class="col s12">
+    <%= form_for_filterrific @filterrific do |f| %>
+      <div>
+        <div class="input-field col s12">
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
+          <label class="active" for="first_name2"><i class="material-icons">search</i> by name</label>
+        </div>
+        <div>
+         <%= link_to('Reset filters',reset_filterrific_url) %>
+       </div>
+       <div class="col s12" style="text-align: center">
+         <%= render(partial: 'rewards/list', locals: { rewards: @all_rewards }) %>
+       </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="row">
  <div class="col s12">

@@ -1,4 +1,8 @@
 $(document).on("ready",function(){
+
+  // <% js = escape_javascript(render(partial: 'rewards/list', locals: { rewards: @all_rewards })) %>
+  // $("#filterrific_results").html("<%= js %>");
+
   if($('#rewards_map2').length){
     navigator.geolocation.getCurrentPosition(rewardsLocation, onError)
   }
@@ -63,6 +67,7 @@ var map;
       infowindow.open(map, mapMarker);
     });
 
+    debugger
     var user_name = $('.js-user-name').data('user-name');
     var contentString = '<div id="content">'+
           '<div id="siteNotice">'+

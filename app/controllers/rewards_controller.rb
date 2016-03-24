@@ -1,23 +1,34 @@
+
 class RewardsController < ApplicationController
 
   def index
     @company = Company.find(params[:company_id])
     @rewards = @company.rewards
+  end
 
-    # @filterrific = initialize_filterrific(
-    #   Reward,
-    #   params[:filterrific]
-    # ) or return
-    # @allRewards = @filterrific.find.page(params[:page])
-    #
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+  def reset_filterrific
+    # Clear session persistence
+    session[:filterrific_rewards] = nil
+    # Redirect back to the index action for default filter settings.
+    redirect_to action: :index
   end
 
   def all_rewards
     @allRewards = Reward.all
+    
+    @filterrific = initialize_filterrific(
+      Reward,
+      params[:filterrific]
+    ) or return
+    # binding.pry
+    @all_rewards = @filterrific.find.page(params[:page])
+
+    # binding.pry
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
+
   end
 
   def new

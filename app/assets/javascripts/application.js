@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require filterrific/filterrific-jquery
 
 $(document).on("ready",function(){
   var url = window.location.pathname.split("/")
