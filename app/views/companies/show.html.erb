@@ -5,6 +5,7 @@
 <div class="row">
 
   <section class="col-md-12 statistics2 font_2">
+    <h5>Branches</h5>
     <ul>
       <% @branches.each_with_index do |branch, index| %>
         <li> <strong>Name:</strong> <%= "#{branch.name}" %></li>
@@ -12,15 +13,36 @@
         <li><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
           - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a>
         </li>
-
         <br>
       <% end %>
     </ul>
+      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn">Add Branch</a></span>
+    <br>
   </section>
-  <br>
-    <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn">Add Branch</a></span>
-  <br>
+
+  <section class="col-md-12 statistics2 font_2">
+    <h5>Rewards</h5>
+    <ul>
+      <% @rewards.each_with_index do |reward, index| %>
+        <li> <strong>Name:</strong> <%= "#{reward.name}" %></li>
+        <li> <strong>Description:</strong> <%= "#{reward.description}" %></li>
+        <li><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
+          - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+    <br>
+      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn">Add Reward</a></span>
+    <br>
+  </section>
+
+  <div class="col-md-12">
+      <a href="<%= branches_map_path(current_company.id) %>" class="btn-branches_map waves-effect waves-light btn">Branches map</a>
+  </div>
 
 </div>
+
+
 
 </section>

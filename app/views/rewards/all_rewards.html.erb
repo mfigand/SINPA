@@ -3,7 +3,7 @@
 
 <div class="row">
  <div class="col s12">
-   <% @rewards.each_with_index do |reward, index| %>
+   <% @allRewards.each_with_index do |reward, index| %>
    <!-- card -->
   <div class="card">
    <div class="card-image waves-effect waves-block waves-light">
@@ -24,6 +24,7 @@
        <ul>
          <li><strong>Description: </strong> <%= "#{reward.description}" %></li>
          <li><strong>Kms cost: </strong> <%= "#{reward.kms_cost}" %></li>
+         <li><strong>Locations: </strong> <a href='/users/branches_map/<%= "#{reward.company_id}"  %>'><%= "#{reward.company.name}" %></a></li>
          <li><strong>Valid from: </strong> <%= "#{reward.valid_from.to_date}" %></li>
          <li><strong>Valid through: </strong> <%= "#{reward.valid_through.to_date}" %></li>
          <li><strong>Available units: </strong> <%= "#{reward.available_units}" %></li>

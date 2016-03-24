@@ -1,50 +1,37 @@
 <h2 class="title is-2"><%= @branch.name%>'s info </h2>
 <br>
-
-<div class="row statistics2 font_2">
-  <section class="col-md-6">
-    <ul>
-      <li> <strong>Name:</strong> <span class="js-branch-name" > <%= "#{@branch.name}" %></span></li>
-      <li> <strong>Address:</strong> <span class="js-address" >
-      <%= "#{@branch.address}" %> </span></li>
-      <li> <strong>Phone:</strong> <%= "#{@branch.phone}" %></li>
-      <li> <strong>Schedule:</strong> <%= "#{@branch.schedule}" %></li>
-      <li> <strong>City:</strong> <%= "#{@branch.city}" %></li>
-      <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
-      <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
-      <li> <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= "#{@branch.url}" %></a></li>
-      <li><span class="js-latitude" data-lat='<%= "#{@branch.latitude}" %>'> </span></li>
-      <li><span class="js-longitude" data-lon='<%= "#{@branch.longitude}" %>'></span> </li>
-      <li><span class="js-branchRewards" data-reward='<%= "#{@branch.rewards}" %>'></span> </li>
-
-      <br>
-    </ul>
-  </section>
-
-  <section class="col-md-6">
-    <a href="<%= company_branch_employees_path(current_company.id,@branch.id) %>" class="row btn" >Employees</a>
-    <a href="<%= new_company_branch_employee_path(current_company.id,@branch.id) %>" class="row btn" >Add Employees</a>
-    <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="row btn" >Rewards</a>
-    <a href="<%= new_company_branch_reward_path(current_company.id,@branch.id) %>" class="row btn" >Add Reward</a>
-    <button type="button" class="js-view_map waves-effect waves-light btn" data-toggle="modal" data-target="#myModal">
-      View in map
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><%= "#{@branch.name}" %>`s location</h4>
-      </div>
-      <div class="modal-body">
-        <%= render "location" %>
-      </div>
-      <div class="modal-footer">
-        <button href="/" type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
-      </div>
+<section class="row">
+  <div class="statistics2 font_2">
+    <div class="col-md-6">
+      <ul>
+        <li> <strong>Name:</strong> <span class="js-branch-name" > <%= "#{@branch.name}" %></span></li>
+        <li> <strong>Address:</strong> <span class="js-address" >
+        <%= "#{@branch.address}" %> </span></li>
+        <li> <strong>Phone:</strong> <%= "#{@branch.phone}" %></li>
+        <li> <strong>Schedule:</strong> <%= "#{@branch.schedule}" %></li>
+        <li> <strong>City:</strong> <%= "#{@branch.city}" %></li>
+        <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
+        <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
+        <li> <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= "#{@branch.url}" %></a></li>
+        <li><span class="js-latitude" data-lat='<%= "#{@branch.latitude}" %>'> </span></li>
+        <li><span class="js-longitude" data-lon='<%= "#{@branch.longitude}" %>'></span> </li>
+        <li><span class="js-branchRewards" data-reward='<%= "#{@branch.rewards}" %>'></span> </li>
+        <br>
+      </ul>
     </div>
-    <!-- End Modal -->
-  </section>
-</div>
+    <div class="col-md-6">
+      <div id="branchMap"></div>
+    </div>
+  </div>
+</section>
+
+<section class="row">
+  <div class="col-md-12">
+    <a href="<%= company_branch_employees_path(current_company.id,@branch.id) %>" class="btn" >Employees</a>
+    <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="btn" >Rewards</a>
+  </div>
+</section>
+
 <br>
 <a href="<%= edit_company_branch_path(current_company.id,params[:id]) %>">Edit branch</a>
 <br>

@@ -1,22 +1,37 @@
 class RewardsController < ApplicationController
 
   def index
-    @branch = Branch.find(params[:branch_id])
-    @rewards = @branch.rewards
+    @company = Company.find(params[:company_id])
+    @rewards = @company.rewards
+
+    # @filterrific = initialize_filterrific(
+    #   Reward,
+    #   params[:filterrific]
+    # ) or return
+    # @allRewards = @filterrific.find.page(params[:page])
+    #
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
+  end
+
+  def all_rewards
+    @allRewards = Reward.all
   end
 
   def new
-    @branch = Branch.find(params[:branch_id])
+    @company = Company.find(params[:company_id])
     @reward = Reward.new
   end
 
   def create
-    @branch = Branch.find(params[:branch_id])
+    @company = Company.find(params[:company_id])
     @reward = Reward.new reward_params
-    @reward.branch_id = params[:branch_id]
+    @reward.company_id = params[:company_id]
     if @reward.save
       flash[:notice] = "Reward created succesfully"
-      redirect_to company_branch_rewards_path(current_company.id,params[:branch_id])
+      redirect_to company_rewards_path(current_company.id,params[:id])
     else
       flash[:alert] = "ALERT Reward not created"
       render 'new'
@@ -24,14 +39,14 @@ class RewardsController < ApplicationController
   end
 
   def show
-    @branch = Branch.find(params[:branch_id])
+    @company = Company.find(params[:company_id])
     @reward = Reward.find(params[:id])
   end
 
   def destroy
     @reward = Reward.find(params[:id])
     @reward.destroy
-    redirect_to company_branch_rewards_path(current_company.id,params[:branch_id])
+    redirect_to company_rewards_path(current_company.id,params[:id])
   end
 
   private

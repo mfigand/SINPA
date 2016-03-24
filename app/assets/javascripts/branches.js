@@ -1,12 +1,8 @@
 $(document).on("ready",function(){
-  if($('.js-view_map').length){
+  if($('#branchMap').length){
     var branchName = $('.js-branch-name')[0].innerText;
     var branchRewards = [];
-    // $('.js-branchRewards').each(function(){
-    //   var reward = $(this).data('reward');
-    //   branchRewards.push(reward);
-    // })
-    $('.js-view_map').on("click",branchLocation);
+    branchLocation();
   }
 
   var map;

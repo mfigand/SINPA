@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160322190051) do
 
   create_table "kms", force: :cascade do |t|
     t.integer  "kms",        default: 0
+    t.integer  "total_kms",  default: 0
     t.integer  "level",      default: 0
     t.integer  "races",      default: 0
     t.integer  "user_id"
@@ -125,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160322190051) do
     t.integer  "available_units"
     t.integer  "reserved_units",     default: 0
     t.integer  "charged_units",      default: 0
+    t.integer  "company_id"
     t.integer  "branch_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -135,6 +137,7 @@ ActiveRecord::Schema.define(version: 20160322190051) do
   end
 
   add_index "rewards", ["branch_id"], name: "index_rewards_on_branch_id", using: :btree
+  add_index "rewards", ["company_id"], name: "index_rewards_on_company_id", using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.datetime "created_at", null: false

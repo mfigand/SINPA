@@ -10,6 +10,7 @@ class CreateRewards < ActiveRecord::Migration
       t.integer :available_units
       t.integer :reserved_units, default: 0
       t.integer :charged_units, default: 0
+      t.references :company, index: true
       t.references :branch, index: true
 
       t.timestamps null: false

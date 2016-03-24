@@ -6,6 +6,7 @@ $(document).on("ready",function(){
 
 var getActivity = function (){
   $('.kms_counter').empty();
+  $('.total_kms_counter').empty();
   $('.level_counter').empty();
   $('.races_counter').empty();
 
@@ -32,6 +33,7 @@ var getActivity = function (){
   function get_kms_response(kms_response){
     $(".message").text("Successful synchronization");
     $(".kms_counter").text(kms_response.kms);
+    $(".total_kms_counter").text(kms_response.total_kms);
     $('.level_counter').text(kms_response.level);
     $('.races_counter').text(kms_response.races);
   };

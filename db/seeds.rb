@@ -36,9 +36,9 @@ casa_manolo, cines_ideal, lalatina_teather, bikers = Company.create([
 # end
 
 km1, km2, km3 = Km.create([
-  {kms: 80, user_id: 1},
-  {kms: 10, user_id: 2},
-  {kms: 150, user_id: 3}
+  {kms: 80, total_kms: 80, user_id: 1},
+  {kms: 10, total_kms: 10, user_id: 2},
+  {kms: 150, total_kms: 150, user_id: 3}
 ])
 
 

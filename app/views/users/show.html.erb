@@ -9,10 +9,11 @@
       </div>
       <div class="col-md-6 row statistics1 font_2">
         <div class="kms col-md-3">
-            <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].kms %></h4><h4>kms</h4>
+            <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].kms %></h4><h4>kms to exchange</h4>
         </div>
         <div class="level col-md-3 col-md-offset-1">
           <span class="level_box">
+            <h4 class="total_kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h4><h4>kms Sync</h4>
           <h4 class="col-md-12">Level</h4><h4 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h4>
           </span>
         </div>
@@ -24,7 +25,7 @@
     </div>
     <div class="col-md-12">
       <div class="col-md-6">
-        <span><a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">View Coupons</a></span>
+        <span><a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a></span>
         <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
       </div>
       <div class="col-md-6">
@@ -42,7 +43,7 @@
           <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
       </div>
       <div class="col-md-6">
-        <input type="text" name="search_by" value="" placeholder="Search by">
+        render algo
       </div>
     </div>
   </div>

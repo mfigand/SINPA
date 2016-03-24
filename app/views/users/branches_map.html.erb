@@ -1,0 +1,17 @@
+<h2 class="title is-2">This rewards near your location</h2>
+<br>
+<div class="row">
+ <div class="map_container col-md-12">
+   <div id="rewards_map2"></div>
+ </div>
+</div>
+<br>
+<ul>
+  <% @branches.each_with_index do |branch, index| %>
+    <li><span class="js-rewards-lat" data-rewards-lat='<%= "#{branch.latitude}" %>'></span></li>
+    <li><span class="js-rewards-long" data-rewards-long='<%= "#{branch.longitude}" %>'></span></li>
+    <br>
+  <% end %>
+</ul>
+
+<a href="<%= users_rewards_path %>">Back to Rewards</a>

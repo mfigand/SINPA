@@ -19,17 +19,18 @@ class CouponsController < ApplicationController
 
   def edit_coupon
     @reward = Reward.find(params[:id])
-    @user_Kms = Km.find_by_user_id(current_user.id).kms
-    @code = Coupon.generate_code
-      if @reward.coupons.length < @reward.available_units && @user_Kms >= @reward.kms_cost
+    if Km.find_by_user_id(current_user.id) == nil
+      flash[:notice] = "Sorry don't have enough kms"
+      redirect_to users_rewards_path
+    else
+      @code = Coupon.generate_code
+      @user_Kms = Km.find_by_user_id(current_user.id).kms
+       @reward.coupons.length < @reward.available_units && @user_Kms >= @reward.kms_cost
         Coupon.rest_kms(current_user,@reward)
         Coupon.rest_available_units(@reward)
         @coupon = Coupon.new(code:@code, kms_cost:@reward.kms_cost, redeemed:"reserved", user_id: current_user.id, reward_id: @reward.id)
         @coupon.save
         redirect_to user_coupons_path(current_user)
-      else
-        flash[:notice] = "Sorry don't have enough kms"
-        redirect_to users_rewards_path
       end
   end
 

@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).on("ready",function(){
+  var url = window.location.pathname.split("/")
+  if (url[1] == "companies" && url[2] == "sign_up"){
+    $('#avatar_field').hide();
+  }
+})
