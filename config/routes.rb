@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/api_sinparun', to: 'site#activity_user'
 
   get '/users/sync_account', to: 'users#sync_account'
+  get '/users/check_id_activity', to: 'users#check_id_activity'
   get '/users/branches_map/:company_id', to: 'users#branches_map', as: 'users_branches_map'
 
   get '/branches_map/:company_id', to: 'companies#branches_map', as: 'branches_map'

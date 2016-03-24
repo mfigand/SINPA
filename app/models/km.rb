@@ -2,5 +2,5 @@ class Km < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :kms, presence: true
+  validates :sinparun_kms, :total_kms, presence: true
 end

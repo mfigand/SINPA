@@ -3,7 +3,7 @@ $(document).on("ready",function(){
   if($('.input-field').length){
     $('#filterrific_results').hide()
   }
-  if($('#filterrific_search_query')[0].defaultValue != ""){
+  if($('#filterrific_search_query').length && $('#filterrific_search_query')[0].defaultValue != ""){
     $('#filterrific_results').show()
   }
   if($('#rewards_map2').length){

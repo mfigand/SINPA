@@ -9,11 +9,11 @@
       </div>
       <div class="col-md-6 row statistics1 font_2">
         <div class="kms col-md-3">
-            <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].kms %></h4><h4>kms to exchange</h4>
+            <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h4><h4>SP kms</h4>
         </div>
         <div class="level col-md-3 col-md-offset-1">
           <span class="level_box">
-            <h4 class="total_kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h4><h4>kms Sync</h4>
+            <h4 class="total_kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h4><h4>total kms</h4>
           <h4 class="col-md-12">Level</h4><h4 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h4>
           </span>
         </div>
@@ -48,51 +48,7 @@
     </div>
   </div>
 
-<!-- <h2 class="salute">Welcome <%= current_user.name %>!</h2>
-<h4 class="message"></h4>
-
-<div class="row">
-
-  <section class="col-md-5 statistics1 font_2">
-    <div class="row">
-      <div class="col-md-5 kms">
-        <h2 class="kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].kms %></h2><h2>kms</h2>
-      </div>
-       <div class="col-md-1">
-      </div>
-      <div class="col-md-5 level">
-        <h2>Level</h2><h2 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h2>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-md-9 col-md-offset-1 races">
-        <h2 class="races_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h2><h2>races</h2>
-      </div>
-    </div>
-  </section>
-
-  <section class="col-md-7 statistics2 font_2">
-    <div class="row">
-      <div class="col-md-12 coupons">
-        <%= image_tag current_user.avatar.url(:medium) %>
-       <a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">View Coupons</a>
-       <br>
-       <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
-      </div>
-      <br>
-      <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
-     </div>
-    </div>
-
-    <section class="col-md-7 statistics2 font_2">
-      <div class="row">
-        <div class="col-md-12 coupons">
-          <div id="rewards_map"></div>
-        </div>
-      </div>
-
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12 syncronize">
         <h4>Syncronize your kms</h4>
         <button class="js-btn-runkeeper waves-effect waves-light" type="button" name="button">
@@ -114,9 +70,4 @@
           <img src="https://lh5.ggpht.com/YcKHqjEx4XLqcv1jhubgp9-6XVY2AZQHjwR3sFdkQX2oAQeQQ1KF85rLJc7Z-RxC2w" alt="" />
         </button>
       </div>
-    </div>
-  </section>
-
-</div>
-
-</section> -->
+    </div> -->
