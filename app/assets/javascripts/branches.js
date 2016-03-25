@@ -21,7 +21,6 @@ $(document).on("ready",function(){
       center: position,
       zoom: 15
     };
-
     map = new google.maps.Map($('#branchMap')[0], mapOptions);
     createBranchMarker(position);
   }

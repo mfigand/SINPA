@@ -13,7 +13,6 @@ class RewardsController < ApplicationController
 
   def all_rewards
     @allRewards = Reward.all
-
     @filterrific = initialize_filterrific(
       Reward,
       params[:filterrific]

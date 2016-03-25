@@ -4,7 +4,7 @@ class Reward < ActiveRecord::Base
   belongs_to :branch
   has_many :coupons
 
-  validates :name, presence: true, length: { maximum: 250, minimum: 3 }, format: {with: /\A[a-zA-ZÑñ0-9\ ]+\z/}
+  validates :name, presence: true, length: { maximum: 250}, format: {with: /\A[a-zA-ZÑñ0-9\ ]+\z/}
   validates :kms_cost, :available_units, :description, :valid_from, :valid_through, :image, presence: true
 
   has_attached_file :image, styles: { medium: "300x300>", small: "200x200!", xsmall: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
