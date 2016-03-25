@@ -22,3 +22,8 @@
 .loggin_name{
   line-height: 50px !important;
 }
+
+.notification{
+  color: rgb(238, 110, 115);
+  font-size: 20px;
+}

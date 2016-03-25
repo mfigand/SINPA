@@ -16,7 +16,7 @@
         <br>
       <% end %>
     </ul>
-      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn">Add Branch</a></span>
+      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn waves-effect waves-light">Add Branch</a></span>
     <br>
   </section>
 
@@ -33,13 +33,19 @@
       <% end %>
     </ul>
     <br>
-      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn">Add Reward</a></span>
+      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn waves-effect waves-light">Add Reward</a></span>
     <br>
   </section>
 
-  <div class="col-md-12">
-      <a href="<%= branches_map_path(current_company.id) %>" class="btn-branches_map waves-effect waves-light btn">Branches map</a>
-  </div>
+  <section class="col-md-12 statistics2 font_2">
+    <h5></h5>
+    <div>
+        <a href="<%= branches_map_path(current_company.id) %>" class="btn-branches_map btn waves-effect waves-light">Branches map</a>
+    </div>
+    <br>
+    <a href="<%= edit_company_path(current_company.id) %>">Edit Company</a>
+  </section>
+
 
 </div>
 

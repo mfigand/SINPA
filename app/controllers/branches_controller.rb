@@ -28,11 +28,11 @@ class BranchesController < ApplicationController
   def update
     @branch = Branch.find(params[:id])
 
-  if @branch.update_attributes branch_params
-    redirect_to action: :index
-  else
-    render "edit"
-  end
+    if @branch.update_attributes branch_params
+      redirect_to action: :index
+    else
+      render "edit"
+    end
 
   end
 

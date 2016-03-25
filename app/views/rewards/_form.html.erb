@@ -1,7 +1,6 @@
 
 <% if @reward.errors.any? %>
-  <ul class="notification is-danger">
-    <button class="delete"></button>
+  <ul class="notification">
     <% @reward.errors.full_messages.each do |error| %>
      <li><%= error %> </li>
     <% end %>

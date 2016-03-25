@@ -6,6 +6,21 @@ class UsersController < ApplicationController
    render 'users/profile'
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes user_params
+      redirect_to action: :profile
+    else
+      render "edit"
+    end
+
+  end
+
   def branches_map
     @company = Company.find(params[:company_id])
     @branches = @company.branches
@@ -19,6 +34,12 @@ class UsersController < ApplicationController
     update_runner_account = User.update_runner(current_user, params)
      render json:update_runner_account, status: 201
    end
+ end
+
+ private
+
+ def user_params
+  params.require(:user).permit(:name, :email, :password, :password_confirmation)
  end
 
 end

@@ -18,7 +18,7 @@
           </span>
         </div>
         <div class="races col-md-3 col-md-offset-1">
-          <h4 class="races_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h4><h4>races</h4>
+          <h4 class="races_counter col-md-12"><% current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h4><h4></h4>
         </div>
       </div>
 
@@ -47,6 +47,9 @@
       </div>
     </div>
   </div>
+
+  <br>
+  <a href="<%=edit_user_path(current_user.id)%>">Edit profile</a>
 
     <!-- <div class="row">
       <div class="col-md-12 syncronize">

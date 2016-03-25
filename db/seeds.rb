@@ -1,7 +1,7 @@
 hugo, paco, luis = User.create([
-  {name: 'Hugo', email: 'hugo@gmail.com', password: '12345678', password_confirmation: '12345678'},
-  {name: 'Paco', email: 'paco@gmail.com',  password: '12345678', password_confirmation: '12345678'},
-  {name: 'Luis', email: 'luis@gmail.com',  password: '12345678', password_confirmation: '12345678'}
+  {name: 'Hugo', email: 'hugo@gmail.com', password: '12345678', password_confirmation: '12345678', avatar:'/images/avatar1.jpg'},
+  {name: 'Paco', email: 'paco@gmail.com',  password: '12345678', password_confirmation: '12345678', avatar:{Faker::Avatar.image}},
+  {name: 'Luis', email: 'luis@gmail.com',  password: '12345678', password_confirmation: '12345678', avatar:'/images/avatar1.jpg'}
 ])
 
 manolos, cines_ideal, lalatina_teather, bikers = Branch.create([

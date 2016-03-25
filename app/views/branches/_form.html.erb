@@ -1,9 +1,8 @@
 
 <% if @branch.errors.any? %>
-  <ul class="notification is-danger">
-    <button class="delete"></button>
+  <ul class="notification">
     <% @branch.errors.full_messages.each do |error| %>
-     <li><%= error %> </li>
+     <li class="notification-li"><%= error %> </li>
     <% end %>
   </ul>
 <% end%>

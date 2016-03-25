@@ -6,7 +6,7 @@ class Site < ActiveRecord::Base
       activityType: "Run",
       activityTimeZone: Time.zone.now,
       totalDuration: "10:52:26.000",
-      totalDistance: 20
+      totalDistance: 30
     }
   end
 

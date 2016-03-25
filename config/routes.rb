@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :companies
   devise_for :users
 
+
+  get 'user_root' => redirect("/users/rewards")
+
+  root to: "site#home"
+
   get '/users', to: 'site#users_home'
   get '/companies', to: 'site#companies_home'
   get '/employees', to: 'site#employees_home'

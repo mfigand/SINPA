@@ -1,7 +1,6 @@
 
 <% if @employee.errors.any? %>
-  <ul class="notification is-danger">
-    <button class="delete"></button>
+  <ul class="notification">
     <% @employee.errors.full_messages.each do |error| %>
      <li><%= error %> </li>
     <% end %>
