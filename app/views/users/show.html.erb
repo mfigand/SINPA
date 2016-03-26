@@ -1,12 +1,89 @@
 <section class="user_background">
 
   <div class="user_info row">
-    <div class="col-md-12">
-      <h2 class="salute">Welcome <%= current_user.name %>!</h2>
-      <h5 class="message"></h5>
-      <div class="col-md-6 img-circle">
+    <div class="col-sm-12">
+        <div class="profile_img">
+        <!-- <h2 class="salute">Welcome <%= current_user.name %>!</h2> -->
         <%= image_tag current_user.avatar.url(:medium) %>
+        <h6 class="message"></h6>
+        </div>
+    </div>
+    <div class="">
+      <div class="col-sm-4">
+        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h5>
+        <h5>Kms Sinpa</h5>
       </div>
+      <div class="col-sm-4">
+        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5><br>
+        <h5>Total kms</h5>
+      </div>
+      <div class="col-sm-4">
+        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h5>
+        <h5>Level</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a>
+    </div>
+    <div class="col-sm-4">
+      <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
+    </div>
+    <div class="col-sm-4">
+      <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <article class="section1">
+      <div class="col-sm-5">
+        <h5 class="sync_label">Syncronize your kms</h5>
+      </div>
+    </article>
+
+    <section class="section2">
+      <div class="col-sm-7">
+        <h5 class="sync_label">Syncronize your kms</h5>
+        <div class="col-sm-2">
+          <button class="js-btn-runkeeper sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/nike_logo.jpg" alt="" />
+          </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/runtastic.png" alt="" />
+          </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/endomondo.jpg" alt="" />
+          </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/runkeeper_icon.png" alt="" />
+          </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/sportstracker.png" alt="" />
+          </button>
+        </div>
+        <div class="col-sm-2">
+          <button class="sync_button waves-effect waves-light" type="button" name="button">
+            <img src="/images/tomtom.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
+      <!-- <h5 class="message"></h5>
       <div class="col-md-6 row statistics1 font_2">
         <div class="kms col-md-3">
             <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h4><h4>SP kms</h4>
@@ -18,12 +95,12 @@
           </span>
         </div>
         <div class="races col-md-3 col-md-offset-1">
-          <h4 class="races_counter col-md-12"><% current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h4><h4></h4>
+          <h4 class="races_counter col-md-12" hidden="true"><% current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h4><h4></h4>
         </div>
-      </div>
+      </div> -->
 
-    </div>
-    <div class="col-md-12">
+
+    <!-- <div class="col-md-12">
       <div class="col-md-6">
         <span><a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a></span>
         <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
@@ -34,19 +111,16 @@
           <img src="/images/nike_logo.jpg" alt="" />
         </button>
       </div>
-    </div>
+    </div> -->
   </div>
 
-  <div class="rewards_for_users row">
+  <!-- <div class="rewards_for_users row">
     <div class="col-md-12">
       <div class="col-md-6">
           <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
       </div>
-      <div class="col-md-6">
-        render algo
-      </div>
     </div>
-  </div>
+  </div> -->
 
   <br>
   <a href="<%=edit_user_path(current_user.id)%>">Edit profile</a>

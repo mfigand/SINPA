@@ -16,14 +16,69 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
- nav {
+ .nav-wrapper {
    color: #333 !important;
+   width: 100%;
+   background-color: #DDD;
 }
+
+.brand-logo{
+  font-family: 'Lobster', cursive;
+  color: #26A69A !important;
+  /*color: #E9ED09 !important;*/
+}
+.sign_link{
+  color: #26A69A !important;
+  font-weight: bold;
+}
+.sign_out{
+  color: black;
+  font-weight: bold;
+}
+
 .loggin_name{
   line-height: 50px !important;
+}
+
+.follow{
+  max-height: 30px !important;
+  width: auto;
+}
+
+.field{
+/*background-color: rgba(0,0,0,0.26); */
+color: #26A69A;
+}
+
+.session_title{
+  color: #26A69A;
 }
 
 .notification{
   color: rgb(238, 110, 115);
   font-size: 20px;
+}
+
+.comun_body{
+  background-image: url('/images/back_running5.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.users_body{
+  background-image: url('/images/back_running6.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.companies_body{
+  background-image: url('/images/back_running10.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.employees_body{
+  background-image: url('/images/back_running9.jpg');
+  background-repeat: space;
+  background-size: cover;
 }

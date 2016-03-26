@@ -2,13 +2,25 @@
   background-color: #3F51B5;
 }
 
-.rewards_for_users{
-
-}
-
 .salute{
   min-height: 100px;
   color: #DEDDDD;
+}
+
+.profile_img img{
+  //  border: 1px solid #d9d9d9;
+   border-radius: 75px;
+   -moz-border-radius: 75px;
+   -webkit-border-radius: 75px;
+   height: 125px;
+   width: 125px;
+   overflow: hidden;
+   text-align: center;
+   img { width: 100% }
+}
+
+.sync_button:hover{
+  background-color: #26A69A;
 }
 
 .statistics1{
@@ -23,10 +35,6 @@
   top: -20px;
 }
 
-// .level_box{
-//   margin-left: -10px;
-// }
-
 .level{
    font-size: #DEDDDD;
    background-color: #DEDDDD;
@@ -40,7 +48,8 @@
 }
 
 .sync_label{
-  color: #DEDDDD;
+  font-family: 'Lobster', cursive;
+  color: #515151;
 }
 
 .js-btn-runkeeper{
@@ -57,7 +66,6 @@
 .nikerunning{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/nike.png");
 }
 .nikerunning img{
   width: 50px;
@@ -68,7 +76,6 @@
 .endomondo{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/endomondo.jpg");
 }
 .endomondo img{
   width: 50px;
@@ -79,7 +86,6 @@
 .sportstracker{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/sportstracker.png");
 }
 .sportstracker img{
   width: 50px;
@@ -90,7 +96,6 @@
 .runtastic{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/runtastic.png");
 }
 .runtastic img{
   width: 50px;
@@ -101,7 +106,6 @@
 .tomtom{
   width: 50px;
   height: 50px;
-  background-image: url("/assets/tomtom.png");
 }
 .tomtom img{
   width: 50px;

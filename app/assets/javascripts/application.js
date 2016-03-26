@@ -16,6 +16,7 @@
 //= require filterrific/filterrific-jquery
 
 $(document).on("ready",function(){
+  $(".button-collapse").sideNav();
   var url = window.location.pathname.split("/")
   if (url[1] == "companies" && url[2] == "sign_up"){
     $('#avatar_field').hide();
