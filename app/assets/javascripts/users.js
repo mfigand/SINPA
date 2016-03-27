@@ -21,7 +21,7 @@ var getActivity = function (){
   };
 
   function get_kms_response(kms_response){
-    $(".message").text("Successful synchronization");
+    $(".message").text("updated synchronization");
     $(".kms_counter").text(kms_response.sinparun_kms);
     $(".total_kms_counter").text(kms_response.total_kms);
     $('.level_counter').text(kms_response.level);

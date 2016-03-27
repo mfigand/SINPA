@@ -1,39 +1,65 @@
 <section class="company_background">
 
-<h2 class="salute"><%= current_company.name %> Company </h2>
+<h2 class="salute sync_label"><%= current_company.name %> </h2>
 
 <div class="row">
 
   <section class="col-md-12 statistics2 font_2">
     <h5>Branches</h5>
-    <ul>
-      <% @branches.each_with_index do |branch, index| %>
-        <li> <strong>Name:</strong> <%= "#{branch.name}" %></li>
-        <li> <strong>Address:</strong> <%= "#{branch.address}" %></li>
-        <li><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
-          - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a>
-        </li>
-        <br>
-      <% end %>
-    </ul>
-      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn waves-effect waves-light">Add Branch</a></span>
+    <table class="highlight centered">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Address</th>
+              <th data-field="price">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @branches.each_with_index do |branch, index| %>
+          <tr>
+            <td><%= "#{branch.name}" %></td>
+            <td><%= "#{branch.address}" %></td>
+            <td><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
+              - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn list_btn waves-effect waves-light">Add Branch</a></span>
     <br>
   </section>
 
   <section class="col-md-12 statistics2 font_2">
     <h5>Rewards</h5>
-    <ul>
-      <% @rewards.each_with_index do |reward, index| %>
-        <li> <strong>Name:</strong> <%= "#{reward.name}" %></li>
-        <li> <strong>Description:</strong> <%= "#{reward.description}" %></li>
-        <li><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
-          - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a>
-        </li>
-        <br>
-      <% end %>
-    </ul>
+    <table class="highlight centered">
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Description</th>
+              <th data-field="name">Status</th>
+              <th data-field="price">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @rewards.each_with_index do |reward, index| %>
+          <tr>
+            <td> <%= "#{reward.name}" %></td>
+            <td><%= "#{reward.description}" %></td>
+            <% if reward.valid_through < Time.now %>
+            <td>Expired</td>
+            <% else %>
+            <td>Active</td>
+            <% end %>
+            <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
+              - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     <br>
-      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn waves-effect waves-light">Add Reward</a></span>
+      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn list_btn waves-effect waves-light">Add Reward</a></span>
     <br>
   </section>
 

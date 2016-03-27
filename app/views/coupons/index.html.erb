@@ -1,13 +1,58 @@
-<h2 class="title is-2"><%= current_user.name%>'s coupons </h2>
-<br>
+<!-- <h2 class="title is-2"><%= current_user.name%>'s coupons </h2>
+<br> -->
 
+<section class="row">
+  <div class="col-sm-12">
+    <h5 class="sync_label" >Reserved coupons</h5>
+    <table class="highlight">
+       <thead>
+         <tr>
+             <th data-field="id">Name</th>
+             <th data-field="name">Kms cost</th>
+             <th data-field="price">Code</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @coupons.each_with_index do |coupon, index| %>
+           <% if coupon.redeemed == "reserved" %>
+           <tr>
+             <td><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a></td>
+             <td><%= "#{coupon.reward.kms_cost}" %></td>
+             <td><%= "#{coupon.code}" %></td>
+           </tr>
+           <% end %>
+         <% end %>
+       </tbody>
+     </table>
+  </div>
+</section>
 
-<ul>
-  <% @coupons.each_with_index do |coupon, index| %>
-    <li><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name} - #{coupon.code}" %></a></li>
-    <br>
-  <% end %>
-</ul>
+<section class="row">
+  <div class="col-sm-12">
+    <h5 class="sync_label">Charged coupons</h5>
+    <table class="highlight">
+       <thead>
+         <tr>
+             <th data-field="id">Name</th>
+             <th data-field="name">Kms cost</th>
+             <th data-field="price">Code</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @coupons.each_with_index do |coupon, index| %>
+           <% if coupon.redeemed == "charged" %>
+           <tr>
+             <td><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a></td>
+             <td><%= "#{coupon.reward.kms_cost}" %></td>
+             <td><%= "#{coupon.code}" %></td>
+           </tr>
+           <% end %>
+         <% end %>
+       </tbody>
+     </table>
+  </div>
+</section>
+
 <br>
 <a href="<%= users_rewards_path %>">Get rewards</a>
 <br>

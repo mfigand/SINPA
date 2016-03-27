@@ -6,6 +6,11 @@ class UsersController < ApplicationController
    render 'users/profile'
   end
 
+  def show
+     @allRewards = Reward.all
+     @coupons = current_user.coupons
+  end
+
   def edit
     @user = User.find(params[:id])
   end

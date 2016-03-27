@@ -1,4 +1,4 @@
-<h2 class="title is-2"><%= @reward.name%>'s info </h2>
+<h2 class="title is-2 sync_label"><%= @reward.name%>'s info </h2>
 <br>
 
 <div class="row statistics2 font_2">
@@ -23,4 +23,6 @@
   </section>
 </div>
 <br>
-<a href="<%= company_rewards_path(current_company.id) %>">Back to Rewards</a>
+<a href="<%= company_rewards_path(current_company.id) %>">My Rewards</a>
+<br>
+<a href="<%= company_path(current_company.id)%>">Back to Company profile</a>

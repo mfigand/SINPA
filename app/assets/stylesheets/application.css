@@ -16,6 +16,15 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
+nav{
+  /*z-index: 1;*/
+}
+
+.yield{
+  /*margin-top: 70px;*/
+  /*z-index: -1 !important;*/
+}
+
  .nav-wrapper {
    color: #333 !important;
    width: 100%;
@@ -24,11 +33,24 @@
 
 .brand-logo{
   font-family: 'Lobster', cursive;
-  color: #26A69A !important;
+  color: #515151 !important;
   /*color: #E9ED09 !important;*/
+  /*color: black !important;*/
 }
+
+.s{
+  color: #FF6347 !important;
+  font-family: 'Lobster', cursive;
+}
+
+.r{
+  color: #FF6347 !important;
+  font-family: 'Lobster', cursive;
+}
+
 .sign_link{
-  color: #26A69A !important;
+  /*color: #26A69A !important;*/
+  color: black!important;
   font-weight: bold;
 }
 .sign_out{

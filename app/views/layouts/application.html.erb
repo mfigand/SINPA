@@ -6,6 +6,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <%= javascript_include_tag 'application', 'data-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -18,7 +19,7 @@
   <div class="nav_bar">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">SinpaRun</a>
+        <a href="#!" class="brand-logo"><span class="s">S</span>inpa<span class="r">R</span>un</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <% if user_signed_in? %>

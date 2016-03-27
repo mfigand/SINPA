@@ -1,22 +1,25 @@
-<h2 class="title is-2"><%= @coupon.reward.name%>'s info </h2>
-<br>
+<div class="coupon_show">
+  <h2 class="title is-2"><%= @coupon.reward.name%></h2>
+  <br>
 
-<div class="row statistics2 font_2">
-  <section class="col-md-6">
-    <ul>
-      <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
-      <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
-      <li> <strong>Redeemed:</strong> <%= "#{@coupon.redeemed}" %></li>
-      <li> <strong>Description:</strong> <%= "#{@coupon.reward.description}" %></li>
-      <br>
-    </ul>
-  </section>
+  <div class="row statistics2 font_2">
+    <section class="col-md-6">
+      <ul>
+        <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
+        <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
+        <li> <strong>Company:</strong> <%= "#{@coupon.reward.company.name}" %></li>
+        <li> <strong>Redeemed:</strong> <%= "#{@coupon.redeemed}" %></li>
+        <li> <strong>Description:</strong> <%= "#{@coupon.reward.description}" %></li>
+        <br>
+      </ul>
+    </section>
 
-  <section class="col-md-6">
-    <div class="img_show_reward" >
-      <%= image_tag @coupon.reward.image.url(:medium)  %>
-    </div>
-  </section>
+    <section class="col-md-6">
+      <div class="img_show_reward" >
+        <%= image_tag @coupon.reward.image.url(:medium)  %>
+      </div>
+    </section>
+  </div>
+  <br>
+  <a href="<%= user_coupons_path(current_user) %>">Back to Coupons</a>
 </div>
-<br>
-<a href="<%= user_coupons_path(current_user) %>">Back to Coupons</a>
