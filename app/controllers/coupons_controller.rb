@@ -18,9 +18,10 @@ class CouponsController < ApplicationController
   end
 
   def edit_coupon
+    # binding.pry
     @reward = Reward.find(params[:id])
-    if Km.find_by_user_id(current_user.id) == nil
-      flash[:notice] = "Sorry don't have enough kms"
+    if Km.find_by_user_id(current_user.id) == nil || (Km.find_by_user_id(current_user.id).sinparun_kms < @reward.kms_cost)
+      flash[:notice] = "Sorry don't have enough kms !"
       redirect_to users_rewards_path
     else
       @code = Coupon.generate_code

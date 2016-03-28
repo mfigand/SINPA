@@ -37,16 +37,15 @@
   </div>
 
   <div class="row">
-    <article class="section1">
       <div class="col-sm-5 section1">
         <h5 class="sync_label">Last rewards</h5>
         <br>
-        <div class="row">
-         <div class="col s12">
+        <div class="">
+         <div class="">
            <% @allRewards.each_with_index do |reward, index| %>
            <% if reward.valid_from < Time.now && index < 4 %>
              <!-- card -->
-              <div class="card">
+              <div class="card last_rewards_cards">
                <div class="card-image waves-effect waves-block waves-light">
                  <div class="img_show_reward activator" >
                    <%= image_tag reward.image.url(:medium) %>
@@ -81,10 +80,8 @@
          </div>
         </div>
       </div>
-    </article>
 
-    <section class="section3">
-      <div class="col-sm-7 section2">
+      <div class="col-sm-6 col-sm-offset-1 section2 ">
         <div class="reserved_coupons">
           <h5 class="sync_label">Reserved coupons</h5>
           <ul class="coupon_list">
@@ -128,7 +125,6 @@
           </button>
         </div>
       </div>
-    </section>
   </div>
 
   <br>
