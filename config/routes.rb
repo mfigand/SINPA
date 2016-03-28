@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   get '/users', to: 'site#users_home'
   get '/companies', to: 'site#companies_home'
   get '/employees', to: 'site#employees_home'
-  get '/api_sinparun', to: 'site#activity_user'
+  get '/api_sinparun/nike', to: 'site#activity_user_nike'
+  get '/api_sinparun/runtastic', to: 'site#activity_user_runtastic'
 
-  get '/users/sync_account', to: 'users#sync_account'
+  get '/users/sync_account/nike', to: 'users#sync_account_nike'
+  get '/users/sync_account/runtastic', to: 'users#sync_account_runtastic'
   get '/users/check_id_activity', to: 'users#check_id_activity'
   get '/users/branches_map/:company_id', to: 'users#branches_map', as: 'users_branches_map'
 

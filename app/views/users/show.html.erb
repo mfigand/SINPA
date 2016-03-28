@@ -1,6 +1,6 @@
 <section class="user_background">
 
-  <div class="user_info counter_label row">
+  <div class="user_info counter_label row z-depth-2">
     <div class="col-sm-12">
         <div class="profile_img materialboxed" width="650">
         <!-- <h2 class="salute">Welcome <%= current_user.name %>!</h2> -->
@@ -10,21 +10,21 @@
     </div>
     <div class="">
       <div class="col-sm-4">
-        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h5>
+        <h5 class="kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h5>
         <h5>Kms Sinpa</h5>
       </div>
       <div class="col-sm-4">
-        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5><br>
+        <h5 class="total_kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5><br>
         <h5>Total kms</h5>
       </div>
       <div class="col-sm-4">
-        <h5><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h5>
+        <h5 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h5>
         <h5>Level</h5>
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row ">
     <div class="col-sm-4">
       <a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a>
     </div>
@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <div class="col-sm-6 col-sm-offset-1 section2 ">
+      <div class="col-sm-6 col-sm-offset-1 section2">
         <div class="reserved_coupons">
           <h5 class="sync_label">Reserved coupons</h5>
           <ul class="coupon_list">
@@ -95,12 +95,12 @@
         </div>
         <h5 class="sync_label">Syncronize your kms</h5>
         <div class="col-sm-2">
-          <button class="js-btn-runkeeper sync_button waves-effect waves-light" type="button" name="button">
+          <button class="js-btn-nike sync_button waves-effect waves-light" type="button" name="button">
             <img src="/images/nike_logo.jpg" alt="" />
           </button>
         </div>
         <div class="col-sm-2">
-          <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+          <button class="js-btn-runtastic sync_button waves-effect waves-light" type="button" name="button">
             <img src="/images/runtastic.png" alt="" />
           </button>
         </div>

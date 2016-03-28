@@ -94,14 +94,15 @@ ActiveRecord::Schema.define(version: 20160322190051) do
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
 
   create_table "kms", force: :cascade do |t|
-    t.integer  "sinparun_kms",        default: 0
-    t.integer  "total_kms",           default: 0
-    t.integer  "nike_last_total_kms", default: 0
-    t.integer  "level",               default: 0
-    t.integer  "races",               default: 0
+    t.integer  "sinparun_kms",             default: 0
+    t.integer  "total_kms",                default: 0
+    t.integer  "nike_last_total_kms",      default: 0
+    t.integer  "runtastic_last_total_kms", default: 0
+    t.integer  "level",                    default: 0
+    t.integer  "races",                    default: 0
     t.integer  "user_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "kms", ["user_id"], name: "index_kms_on_user_id", using: :btree

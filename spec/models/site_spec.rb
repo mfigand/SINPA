@@ -2,13 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Site, type: :model do
 
-  describe '#all_activities' do
-
-    it 'Returns total kms json from fake api' do
-      expect(Site.all_activities).to_json
+    it 'Returns total kms in json from fake nike_api' do
+      expect(Site.all_activities_nike).to_json
     end
 
-
-  end
+    it 'Returns total kms in json from fake runtastic_api' do
+      expect(Site.all_activities_runtastic).to_json
+    end
 
 end

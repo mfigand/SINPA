@@ -31,12 +31,30 @@ class UsersController < ApplicationController
     @branches = @company.branches
   end
 
- def sync_account
+ def sync_account_nike
    if current_user.kms.length == 0
-     set_new_runner = User.new_runner(current_user, params)
-     render json: set_new_runner, status: 201
+     set_new_runner = User.new_runner_nike(current_user, params)
+     render json: set_new_runner_nike, status: 201
+   elsif current_user.kms[0].nike_last_total_kms == 0
+     set_new_nike_account = User.new_nike_account(current_user, params)
+     render json: set_new_nike_account, status: 201
    else
-    update_runner_account = User.update_runner(current_user, params)
+    update_runner_account = User.update_runner_nike(current_user, params)
+     render json:update_runner_account, status: 201
+   end
+ end
+
+ def sync_account_runtastic
+  #  binding.pry
+   if current_user.kms.length == 0
+     set_new_runner = User.new_runner_runtastic(current_user, params)
+     render json: set_new_runner, status: 201
+   elsif current_user.kms[0].runtastic_last_total_kms == 0
+    #  binding.pry
+     set_new_runtastic_account = User.new_runtastic_account(current_user, params)
+     render json: set_new_runtastic_account, status: 201
+   else
+    update_runner_account = User.update_runner_runtastic(current_user, params)
      render json:update_runner_account, status: 201
    end
  end

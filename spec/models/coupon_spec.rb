@@ -34,19 +34,19 @@ RSpec.describe Coupon, type: :model do
 
    describe 'associations' do
 
-     it 'Relates user and kms account' do
+     it 'Relates coupons and users' do
        user = FactoryGirl.create(:user)
        coupon = FactoryGirl.create(:coupon, user_id: user.id)
        expect(user.coupons[0]).eql?(coupon)
      end
 
-     it 'Relates user and coupons' do
+     it 'Relates coupons and employees' do
        employee = FactoryGirl.create(:employee)
        coupon = FactoryGirl.create(:coupon, employee_id: employee.id)
        expect(employee.coupons[0]).eql?(coupon)
      end
 
-     it 'Relates user and coupons' do
+     it 'Relates coupons and rewards' do
        reward = FactoryGirl.create(:reward)
        coupon = FactoryGirl.create(:coupon, reward_id: reward.id)
        expect(reward.coupons[0]).eql?(coupon)

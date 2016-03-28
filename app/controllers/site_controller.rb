@@ -15,8 +15,13 @@ class SiteController < ApplicationController
     check_log_session
   end
 
-  def activity_user
-  api_response = Site.all_activities
+  def activity_user_nike
+  api_response = Site.all_activities_nike
+  render json: api_response, status: 201
+  end
+
+  def activity_user_runtastic
+  api_response = Site.all_activities_runtastic
   render json: api_response, status: 201
   end
 
