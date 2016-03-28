@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
+  # layout "employees"
 
   def index
     @branch = Branch.find(params[:branch_id])
     @employees = @branch.employees
-    @employee = Employee.find(params[:branch_id])
   end
 
   def new

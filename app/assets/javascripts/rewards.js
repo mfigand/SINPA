@@ -30,22 +30,31 @@ var map;
       longitude.push(long);
     });
 
-    var position = {
+    rewards_company = [];
+    $('.js-rewards-company').each(function(){
+      var reward = $(this).data('rewards-company');
+      rewards_company.push(reward);
+    })
+
+    var markersPosition = {
       lat: latitude,
       lng: longitude
      };
+     var rewardsCompany = {
+       rewardsArray: rewards_company
+      };
 
      createRewardsMap(myPosition);
-     createRewardsMarker(position);
+     createRewardsMarker(markersPosition,rewardsCompany);
   }
 
-  function createRewardsMap(position){
+  function createRewardsMap(myPosition){
     var mapPosition = {
-      lat: position.lat[0],
-      lng: position.lng[0]
+      lat: myPosition.lat[0],
+      lng: myPosition.lng[0]
      };
     var mapOptions = {
-      center: position,
+      center: myPosition,
       zoom: 12
     };
     map = new google.maps.Map($('#rewards_map2')[0], mapOptions);
@@ -60,7 +69,7 @@ var map;
                 new google.maps.Point(0, 0),
                 new google.maps.Point(12, 35));
     var mapMarker = new google.maps.Marker({
-     position: position,
+     position: myPosition,
      map: map,
      icon: pinImage,
      title: $('.js-user-name').data('user-name'),
@@ -74,7 +83,6 @@ var map;
     var contentString = '<div id="content">'+
           '<div id="siteNotice">'+
           '</div>'+
-          '<h1 id="firstHeading" class="firstHeading"></h4>'+
           '<div id="bodyContent">'+
           '<p><b>'+ user_name +'</b>'+
           '</div>'+
@@ -82,22 +90,18 @@ var map;
     var infowindow = new google.maps.InfoWindow({
        content: contentString
      });
-
   }
 
-  function createRewardsMarker(position) {
+  function createRewardsMarker(position,rewardsCompany) {
     // debugger
     for (i = position.lat.length-1; i >= 0; i--){
       var branch_name = $('.js-rewards-name')[0].innerText;
-      var branch_rewards = [];
-      $('.js-branch-reward').each(function(){
-        var reward = $(this).data('branch-rewards');
-        branch_rewards.push(reward);
-      })
+
       var markerPosition = {
         lat: position.lat[i],
         lng: position.lng[i]
        };
+
       var marker = new google.maps.Marker({
        position: markerPosition,
        map: map
@@ -108,10 +112,9 @@ var map;
       var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading"></h4>'+
             '<div id="bodyContent">'+
-            '<p><b>'+ branch_name +'</b>'+
-            '<p>'+branch_rewards+'</p>'+
+            '<p><b>Rewards</b>'+
+            '<p>'+rewardsCompany.rewardsArray[i]+'</p>'+
             '</div>'+
             '</div>';
       var infowindow = new google.maps.InfoWindow({

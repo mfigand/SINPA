@@ -26,11 +26,27 @@
   width: 100% !important;
 }
 
+.img_show_reward{
+  text-align: -webkit-center !important;
+  width: auto;
+  height: 100%;
+}
+
+.img_show_reward img{
+  max-width: 250px;
+  height: 100%;
+  width: auto;
+}
+
 .card{
   height: 300px;
   width: 300px;
   display: inline-block;
   text-align: center;
+}
+
+.card-title{
+  font-size: 18px !important; 
 }
 
 .card-image{
@@ -45,9 +61,4 @@ li{
 .close_icon{
   float: right;
   width: 10%;
-}
-
-img{
-  max-height: 200px !important;
-  max-width: 200px;
 }

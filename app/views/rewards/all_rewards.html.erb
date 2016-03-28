@@ -1,7 +1,9 @@
 <h2 class="title is-2 sync_label">Get your rewards</h2>
 <br>
 <div class="error">
+  <% if flash_message == "Sorry don't have enough kms !"%>
   <%= flash_message %>
+  <% end %>
 </div>
 
 
@@ -42,7 +44,7 @@
        </div>
        <div class="card-content">
          <span class="card-title activator grey-text text-darken-4">
-           <b><%= "#{reward.available_units}" %></b> - <%= "#{reward.name}" %>
+           <b><%= "#{reward.kms_cost}" %> kms</b> - <%= "#{reward.name}" %>
            <i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
          <p><a href="<%= edit_coupon_path(reward.id) %>">Get</a></p>
        </div>

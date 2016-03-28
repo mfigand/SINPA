@@ -1,6 +1,5 @@
 require 'devise'
 require 'factory_girl_rails'
-require "capybara/rspec"
 require "support/factory_girl"
 require "support/user_login_helper"
 

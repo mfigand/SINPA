@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'user_root' => redirect("/users/rewards")
 
-  root to: "site#home"
+  root to: "site#users_home"
 
   get '/users', to: 'site#users_home'
   get '/companies', to: 'site#companies_home'

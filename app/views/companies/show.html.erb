@@ -3,78 +3,78 @@
 <h2 class="salute sync_label"><%= current_company.name %> </h2>
 
 <div class="row">
-
-  <section class="col-md-12 statistics2 font_2">
-    <h5>Branches</h5>
-    <table class="highlight centered">
-        <thead>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="name">Address</th>
-              <th data-field="price">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @branches.each_with_index do |branch, index| %>
-          <tr>
-            <td><%= "#{branch.name}" %></td>
-            <td><%= "#{branch.address}" %></td>
-            <td><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
-              - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <span><a href="<%= new_company_branch_path(current_company.id) %>" class="btn list_btn waves-effect waves-light">Add Branch</a></span>
-    <br>
-  </section>
-
-  <section class="col-md-12 statistics2 font_2">
+  <div class="col-md-7">
     <h5>Rewards</h5>
-    <table class="highlight centered">
-        <thead>
-          <tr>
-              <th data-field="id">Name</th>
-              <th data-field="name">Description</th>
-              <th data-field="name">Status</th>
-              <th data-field="price">Action</th>
-          </tr>
-        </thead>
+    <span><a href="<%= new_company_reward_path(current_company.id) %>" class="">Add Reward</a></span>
+    <% @rewards.each_with_index do |reward, index| %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i><%= reward.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                    <th data-field="name">Description</th>
+                    <th data-field="name">Status</th>
+                    <th data-field="price">Action</th>
+                </tr>
+              </thead>
 
-        <tbody>
-          <% @rewards.each_with_index do |reward, index| %>
-          <tr>
-            <td> <%= "#{reward.name}" %></td>
-            <td><%= "#{reward.description}" %></td>
-            <% if reward.valid_through < Time.now %>
-            <td>Expired</td>
-            <% else %>
-            <td>Active</td>
-            <% end %>
-            <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
-              - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <br>
-      <span><a href="<%= new_company_reward_path(current_company.id) %>" class="btn list_btn waves-effect waves-light">Add Reward</a></span>
-    <br>
-  </section>
+              <tbody>
+                <tr>
+                  <td><%= "#{reward.description}" %></td>
+                  <% if reward.valid_through < Time.now %>
+                  <td>Expired</td>
+                  <% else %>
+                  <td>Active</td>
+                  <% end %>
+                  <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
+                    - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+                </tr>
 
-  <section class="col-md-12 statistics2 font_2">
-    <h5></h5>
-    <div>
-        <a href="<%= branches_map_path(current_company.id) %>" class="btn-branches_map btn waves-effect waves-light">Branches map</a>
-    </div>
-    <br>
-    <a href="<%= edit_company_path(current_company.id) %>">Edit Company</a>
-  </section>
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  </div>
 
+  <div class="col-md-4 col-sm-offset-1">
+    <h5>Branches</h5>
+    <span><a href="<%= new_company_branch_path(current_company.id) %>" class="">Add Branch</a></span>
+    - <a href="<%= branches_map_path(current_company.id) %>" class="">view map</a>
+    <% @branches.each_with_index do |branch, index| %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">location_on</i><%= branch.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
 
+                    <th data-field="name">Address</th>
+                    <th data-field="price">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= "#{branch.address}" %></td>
+                  <td><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
+                    - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>
 
+    <br>
+    <a class="btn waves-effect waves-light" href="<%= edit_company_path(current_company.id) %>">Edit Company</a>
 
 
 </section>

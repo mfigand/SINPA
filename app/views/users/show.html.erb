@@ -1,51 +1,97 @@
 <section class="user_background">
 
   <div class="user_info counter_label row z-depth-2">
-    <div class="col-sm-12">
-        <div class="profile_img materialboxed" width="650">
-        <!-- <h2 class="salute">Welcome <%= current_user.name %>!</h2> -->
-        <%= image_tag current_user.avatar.url(:medium) %>
-        </div>
-        <h6 class="message"></h6>
-    </div>
-    <div class="">
-      <div class="col-sm-4">
+    <div class="valign-wrapper">
+      <div class="col-sm-3 valign">
+          <div class="profile_img materialboxed" width="650">
+          <%= image_tag current_user.avatar.url(:medium) %>
+          </div>
+          <h6 class="message"></h6>
+      </div>
+      <div class="col-sm-3 valign">
         <h5 class="kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h5>
         <h5>Kms Sinpa</h5>
       </div>
-      <div class="col-sm-4">
-        <h5 class="total_kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5><br>
+      <div class="col-sm-3 valign">
+        <h5 class="total_kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5>
         <h5>Total kms</h5>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3 valign">
         <h5 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h5>
         <h5>Level</h5>
       </div>
     </div>
   </div>
 
-  <div class="row ">
-    <div class="col-sm-4">
-      <a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a>
+  <div class="row section3 hoverable">
+    <h5 class="sync_label">Syncronize your kms</h5>
+    <br>
+    <div class="col-sm-2">
+      <button class="js-btn-nike sync_button waves-effect waves-light" type="button" name="button">
+        <img src="/images/nike_logo.jpg" alt="" />
+      </button>
     </div>
-    <div class="col-sm-4">
-      <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
+    <div class="col-sm-2">
+      <button class="js-btn-runtastic sync_button waves-effect waves-light" type="button" name="button">
+        <img src="/images/runtastic.png" alt="" />
+      </button>
     </div>
-    <div class="col-sm-4">
-      <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/endomondo.jpg" alt="" />
+      </button>
     </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/runkeeper_icon.png" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/sportstracker.png" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/tomtom.png" alt="" />
+      </button>
+    </div>
+    <br>
+
   </div>
 
   <div class="row">
-      <div class="col-sm-5 section1">
-        <h5 class="sync_label">Last rewards</h5>
+    <div class="col-sm-6 section2 hoverable">
+      <div class="reserved_coupons">
+          <h5 class="sync_label ">Reserved coupons</h5>
+          <a class="" href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light">view all</a>
+          <div class="coupon_list ">
+            <br>
+            <% @coupons.each_with_index do |coupon, index| %>
+            <% if coupon.redeemed == "reserved" %>
+              <div class="chip">
+                <img class="valign" src="/images/<%= coupon.reward.image_file_name %>" alt="Contact Person">
+                <%= coupon.reward.name %>
+                - <a href="<%= user_coupon_path(current_user,coupon) %>"><%= coupon.code %></a>
+              </div>
+              <% end %>
+              <br>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
+      <div class="col-sm-5 col-sm-offset-1 section1 hoverable">
+        <h5 class="sync_label">Latest rewards</h5>
+        <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light">View all</a>
+        - <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map">view in map</a>
         <br>
         <div class="">
          <div class="">
            <% @allRewards.each_with_index do |reward, index| %>
            <% if reward.valid_from < Time.now && index < 4 %>
              <!-- card -->
-              <div class="card last_rewards_cards">
+              <div class="card ">
                <div class="card-image waves-effect waves-block waves-light">
                  <div class="img_show_reward activator" >
                    <%= image_tag reward.image.url(:medium) %>
@@ -54,7 +100,7 @@
                </div>
                <div class="card-content">
                  <span class="card-title activator grey-text text-darken-4">
-                   <b><%= "#{reward.available_units}" %></b> - <%= "#{reward.name}" %>
+                   <b><%= "#{reward.kms_cost}" %> kms</b> - <%= "#{reward.name}" %>
                    <i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
                  <p><a href="<%= edit_coupon_path(reward.id) %>">Get</a></p>
                </div>
@@ -81,121 +127,9 @@
         </div>
       </div>
 
-      <div class="col-sm-6 col-sm-offset-1 section2">
-        <div class="reserved_coupons">
-          <h5 class="sync_label">Reserved coupons</h5>
-          <ul class="coupon_list">
-            <% @coupons.each_with_index do |coupon, index| %>
-            <% if coupon.redeemed == "reserved" %>
-              <li><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name} - #{coupon.code}" %></a></li>
-              <% end %>
-              <br>
-            <% end %>
-          </ul>
-        </div>
-        <h5 class="sync_label">Syncronize your kms</h5>
-        <div class="col-sm-2">
-          <button class="js-btn-nike sync_button waves-effect waves-light" type="button" name="button">
-            <img src="/images/nike_logo.jpg" alt="" />
-          </button>
-        </div>
-        <div class="col-sm-2">
-          <button class="js-btn-runtastic sync_button waves-effect waves-light" type="button" name="button">
-            <img src="/images/runtastic.png" alt="" />
-          </button>
-        </div>
-        <div class="col-sm-2">
-          <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
-            <img src="/images/endomondo.jpg" alt="" />
-          </button>
-        </div>
-        <div class="col-sm-2">
-          <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
-            <img src="/images/runkeeper_icon.png" alt="" />
-          </button>
-        </div>
-        <div class="col-sm-2">
-          <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
-            <img src="/images/sportstracker.png" alt="" />
-          </button>
-        </div>
-        <div class="col-sm-2">
-          <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
-            <img src="/images/tomtom.png" alt="" />
-          </button>
-        </div>
-      </div>
   </div>
 
   <br>
     <a href="<%=edit_user_path(current_user.id)%>">Edit profile</a>
 
 </section>
-
-
-
-      <!-- <h5 class="message"></h5>
-      <div class="col-md-6 row statistics1 font_2">
-        <div class="kms col-md-3">
-            <h4 class="kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h4><h4>SP kms</h4>
-        </div>
-        <div class="level col-md-3 col-md-offset-1">
-          <span class="level_box">
-            <h4 class="total_kms_counter col-md-12"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h4><h4>total kms</h4>
-          <h4 class="col-md-12">Level</h4><h4 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h4>
-          </span>
-        </div>
-        <div class="races col-md-3 col-md-offset-1">
-          <h4 class="races_counter col-md-12" hidden="true"><% current_user.kms.length == 0 ? 0 : current_user.kms[0].races %></h4><h4></h4>
-        </div>
-      </div> -->
-
-
-    <!-- <div class="col-md-12">
-      <div class="col-md-6">
-        <span><a href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light btn">My Coupons</a></span>
-        <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light btn">Rewards list</a>
-      </div>
-      <div class="col-md-6">
-        <h4 class="sync_label">Syncronize your kms</h4>
-        <button class="js-btn-runkeeper waves-effect waves-light" type="button" name="button">
-          <img src="/images/nike_logo.jpg" alt="" />
-        </button>
-      </div>
-    </div> -->
-  <!-- </div> -->
-
-  <!-- <div class="rewards_for_users row">
-    <div class="col-md-12">
-      <div class="col-md-6">
-          <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map waves-effect waves-light btn">Rewards map</a>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <br>
-  <a href="<%=edit_user_path(current_user.id)%>">Edit profile</a> -->
-
-    <!-- <div class="row">
-      <div class="col-md-12 syncronize">
-        <h4>Syncronize your kms</h4>
-        <button class="js-btn-runkeeper waves-effect waves-light" type="button" name="button">
-          <img src="/images/runkeeper_icon.png" alt="" />
-        </button>
-        <button class="nikerunning waves-effect waves-light" type="button" name="button">
-          <img src="http://a5.mzstatic.com/eu/r30/Purple2/v4/19/85/13/19851378-4878-501d-41b9-ed464cf08a9c/icon175x175.png" alt="" />
-        </button>
-        <button class="endomondo waves-effect waves-light" type="button" name="button">
-          <img src="http://4wod.com/wp-content/uploads/2014/04/Endomondo-logo-1-300x300.jpg" alt="" />
-        </button>
-        <button class="sportstracker waves-effect waves-light" type="button" name="button">
-          <img src="http://imagenes.es.sftcdn.net/es/scrn/3336000/3336628/sports-tracker-02-535x535.png" alt="" />
-        </button>
-        <button class="runtastic waves-effect waves-light" type="button" name="button">
-          <img src="http://imagenes.es.sftcdn.net/es/scrn/6652000/6652827/runtastic-10-535x535.png" alt="" />
-        </button>
-        <button class="tomtom waves-effect waves-light" type="button" name="button">
-          <img src="https://lh5.ggpht.com/YcKHqjEx4XLqcv1jhubgp9-6XVY2AZQHjwR3sFdkQX2oAQeQQ1KF85rLJc7Z-RxC2w" alt="" />
-        </button>
-      </div>
-    </div> -->

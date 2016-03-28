@@ -2,8 +2,8 @@
   <h2 class="title is-2"><%= @coupon.reward.name%></h2>
   <br>
 
-  <div class="row statistics2 font_2">
-    <section class="col-md-6">
+  <div class="row statistics2 font_2 valign-wrapper">
+    <section class="col-md-6 valign">
       <ul>
         <li> <strong>Code:</strong> <%= "#{@coupon.code}" %></li>
         <li> <strong>Kms cost:</strong> <%= "#{@coupon.kms_cost}" %></li>
@@ -14,8 +14,8 @@
       </ul>
     </section>
 
-    <section class="col-md-6">
-      <div class="img_show_reward" >
+    <section class="col-md-6 valign">
+      <div class="img_show_reward " >
         <%= image_tag @coupon.reward.image.url(:medium)  %>
       </div>
     </section>

@@ -1,5 +1,6 @@
 
 $(document).on("ready",function(){
+  $('.modal-trigger').leanModal()
   if($('#branches_map').length){
     navigator.geolocation.getCurrentPosition(branchesLocation, onError)
   }

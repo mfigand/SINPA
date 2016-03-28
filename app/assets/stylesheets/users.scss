@@ -5,6 +5,7 @@
   // background-color: #3F51B5;
   background-color: #20B2AA;
   // background-color: rgba(63,81,181,0.8);
+  border-radius: 25px;
 }
 
 .salute{
@@ -44,15 +45,20 @@
 
 .section2{
   min-width: 300px;
+  min-height: 200px !important;
   background-color: #F8F8F8 !important;
 }
 
 .section3{
-  background-color: blue !important;
-  // float: right !important;
-  // display: block;
+  background-color: #F8F8F8 !important;
+  min-height: 150px;
 }
 
+.chip{
+  height: 100% !important;
+  width: auto !important;
+  font-size: 20px !important;
+}
 .coupon_list li{
   text-align: center !important;
 }
