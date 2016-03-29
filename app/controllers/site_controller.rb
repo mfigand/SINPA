@@ -1,7 +1,5 @@
 class SiteController < ApplicationController
 
-
-
   def users_home
     check_log_session
   end
