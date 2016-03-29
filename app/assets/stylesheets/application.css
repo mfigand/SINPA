@@ -16,15 +16,6 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
-nav{
-  /*z-index: 1;*/
-}
-
-.yield{
-  /*margin-top: 70px;*/
-  /*z-index: -1 !important;*/
-}
-
  .nav-wrapper {
    color: #333 !important;
    width: 100%;
@@ -34,8 +25,6 @@ nav{
 .brand-logo{
   font-family: 'Lobster', cursive;
   color: #515151 !important;
-  /*color: #E9ED09 !important;*/
-  /*color: black !important;*/
 }
 
 .s{
@@ -49,7 +38,6 @@ nav{
 }
 
 .sign_link{
-  /*color: #26A69A !important;*/
   color: black!important;
   font-weight: bold;
 }
@@ -68,7 +56,6 @@ nav{
 }
 
 .field{
-/*background-color: rgba(0,0,0,0.26); */
 color: #26A69A;
 }
 

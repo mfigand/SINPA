@@ -4,14 +4,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # has_many :rewards
-  # has_many :races
   has_many :coupons
   has_many :kms
 
   validates :name, presence: true, length: { maximum: 250 }
   validates :email, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, format: {with: /\A[a-zA-ZÑñ0-9\ ]+\z/}
+  # validates :password, length: { minumum: 8 }
+  # validates_each :password do |record, attr, value|
+  #   record.errors.add(attr, 'must start with upper case') if value =~ /\A[[:lower:]]/
+  #   end
+  # /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/
 
  has_attached_file :avatar, styles: {
    medium: "300x300>",
@@ -62,7 +65,6 @@ class User < ActiveRecord::Base
   end
 
   def self.new_runtastic_account(current_user,params)
-    # binding.pry
     kms_accounts = current_user.kms[0]
     kms_accounts.runtastic_last_total_kms = params[:totalDistance].to_i
     kms_accounts.save
@@ -70,7 +72,6 @@ class User < ActiveRecord::Base
   end
 
   def self.update_runner_runtastic(current_user,params)
-    # binding.pry
     kms_accounts = current_user.kms[0]
     if params[:totalDistance].to_i > kms_accounts.runtastic_last_total_kms
       runtastic_new_kms = params[:totalDistance].to_i - kms_accounts.runtastic_last_total_kms
