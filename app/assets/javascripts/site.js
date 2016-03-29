@@ -14,7 +14,7 @@ $(document).on("ready",function(){
   if (home_url[1] === "employees" && (home_url[2] === "sign_in" || home_url[2] === "sign_up" || home_url[2] === undefined || home_url[3] === "edit") ){
     $('.nav_bar').hide();
     $('.panel').hide();
-    $('sing_up_link').hide();
+    $('.sing_up_link').hide();
     $('.home_body').addClass('employees_body');
   }
   if (home_url[1] === "employees" && (home_url[2] === "sign_in") ){

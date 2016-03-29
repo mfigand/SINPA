@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout "users"
+  # layout "users"
   before_action :authenticate_user!, except: :update
 
   def profile

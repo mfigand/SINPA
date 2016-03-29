@@ -4,53 +4,72 @@
 <section class="row">
   <div class="col-sm-12">
     <h5 class="sync_label" >Reserved coupons</h5>
-    <table class="highlight">
-       <thead>
-         <tr>
-             <th data-field="id">Name</th>
-             <th data-field="name">Kms cost</th>
-             <th data-field="price">Code</th>
-         </tr>
-       </thead>
-       <tbody>
-         <% @coupons.each_with_index do |coupon, index| %>
-           <% if coupon.redeemed == "reserved" %>
-           <tr>
-             <td><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a></td>
-             <td><%= "#{coupon.reward.kms_cost}" %></td>
-             <td><%= "#{coupon.code}" %></td>
-           </tr>
-           <% end %>
-         <% end %>
-       </tbody>
-     </table>
-  </div>
-</section>
 
-<section class="row">
+     <% @coupons.each_with_index do |coupon, index| %>
+     <% if coupon.redeemed == "reserved" %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i>
+          <a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a>
+        </div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                  <th>Kms cost</th>
+                  <th>Code</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= "#{coupon.reward.kms_cost}" %></td>
+                  <td><%= "#{coupon.code}" %></td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  <% end %>
+  </div>
+
   <div class="col-sm-12">
     <h5 class="sync_label">Charged coupons</h5>
-    <table class="highlight">
-       <thead>
-         <tr>
-             <th data-field="id">Name</th>
-             <th data-field="name">Kms cost</th>
-             <th data-field="price">Code</th>
-         </tr>
-       </thead>
-       <tbody>
-         <% @coupons.each_with_index do |coupon, index| %>
-           <% if coupon.redeemed == "charged" %>
-           <tr>
-             <td><a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a></td>
-             <td><%= "#{coupon.reward.kms_cost}" %></td>
-             <td><%= "#{coupon.code}" %></td>
-           </tr>
-           <% end %>
-         <% end %>
-       </tbody>
-     </table>
+
+    <% @coupons.each_with_index do |coupon, index| %>
+      <% if coupon.redeemed == "charged" %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i>
+          <a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a>
+        </div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                  <th>Kms cost</th>
+                  <th>Code</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= "#{coupon.reward.kms_cost}" %></td>
+                  <td><%= "#{coupon.code}" %></td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  <% end %>
   </div>
+
 </section>
 
 <br>
