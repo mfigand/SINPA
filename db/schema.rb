@@ -107,17 +107,6 @@ ActiveRecord::Schema.define(version: 20160322190051) do
 
   add_index "kms", ["user_id"], name: "index_kms_on_user_id", using: :btree
 
-  create_table "races", force: :cascade do |t|
-    t.integer  "kms"
-    t.datetime "sync_date"
-    t.string   "source"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "races", ["user_id"], name: "index_races_on_user_id", using: :btree
-
   create_table "rewards", force: :cascade do |t|
     t.string   "name"
     t.integer  "kms_cost"

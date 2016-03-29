@@ -1,8 +1,8 @@
-hugo, paco, luis = User.create([
-  {name: 'Hugo', email: 'hugo@gmail.com', password: '12345678', password_confirmation: '12345678'},
-  {name: 'Paco', email: 'paco@gmail.com',  password: '12345678', password_confirmation: '12345678'},
-  {name: 'Luis', email: 'luis@gmail.com',  password: '12345678', password_confirmation: '12345678'}
-])
+# hugo, paco, luis = User.create([
+#   {name: 'Hugo', email: 'hugo@gmail.com', password: '12345678', password_confirmation: '12345678'},
+#   {name: 'Paco', email: 'paco@gmail.com',  password: '12345678', password_confirmation: '12345678'},
+#   {name: 'Luis', email: 'luis@gmail.com',  password: '12345678', password_confirmation: '12345678'}
+# ])
 
 manolos, cines_ideal, lalatina_teather, bikers = Branch.create([
   {name: 'Manolos', address: 'Plaza Mayor', latitude:'40.415511', longitude:'-3.7095896', city: 'Madrid', phone: '555666777', company_id: 1},
@@ -30,42 +30,3 @@ juan, juana, mario, maria, jose, pepe, pedro, manu = Employee.create([
   {name: 'Pedro', email: 'pedro@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'},
   {name: 'Manu', email: 'manu@gmail.com', branch_id: 6, password: '12345678', password_confirmation: '12345678', phone: '555666777'}
 ])
-
-# coupon1, coupon2, coupon3 = Coupon.create([
-#   {code: 'una1', kms_cost: 10, redeemed: 'pending', user_id: 1, employee_id: 1, reward_id: 1},
-#   {code: 'una2', kms_cost: 40, redeemed: 'pending', user_id: 1, employee_id: 2, reward_id: 2},
-#   {code: 'una3', kms_cost: 50, redeemed: 'pending', user_id: 2, employee_id: 4, reward_id: 3},
-#   {code: 'una4', kms_cost: 20, redeemed: 'pending', user_id: 3, employee_id: 5, reward_id: 4}
-# ])
-#
-# 1.upto(25) do |index|
-#   coupon = Coupon.create(
-#   code: "#{index}",
-#   kms_cost: 10,
-#   redeemed: 'pending',
-#   )
-# end
-
-# km1, km2, km3 = Km.create([
-#   {kms: 80, user_id: 1},
-#   {kms: 10, user_id: 2},
-#   {kms: 150, user_id: 3}
-#   # {kms: 150, nike_last_total_kms: 150, user_id: 3}
-# ])
-
-
-# race1, race2, race3, race4, race5, race6 = Race.create([
-#   {kms: 9, sync_date: Time.now.to_date-1.day, source: 'runtastic', user_id: 1},
-#   {kms: 10, sync_date: Time.now.to_date-2.day, source: 'nikerunning', user_id: 1},
-#   {kms: 5, sync_date: Time.now.to_date-1.day, source: 'endomondo', user_id: 2},
-#   {kms: 12, sync_date: Time.now.to_date-5.day, source: 'sporttracker', user_id: 2},
-#   {kms: 10, sync_date: Time.now.to_date-3.day, source: 'tomtom', user_id: 3},
-#   {kms: 8, sync_date: Time.now.to_date-4.day, source: 'runkeeper', user_id: 3}
-# ])
-
-# coffee, popcorns, theater_ticket, bike_service = Reward.create([
-#   {name: 'Coffee', kms_cost: 10, code: 'freecoffee', description: 'free coffee', url_img: '/images/coffee.jpg', valid_from: Time.now.to_date-15.day, valid_through: Time.now.to_date+15.day, available_units: 2, branch_id: 1},
-#   {name: 'Popcorns', kms_cost: 10, code: 'freepopcorns', description: 'free popcorns', url_img: 'http://i1.wp.com/www.altcointoday.com/wp-content/uploads/2014/11/movie-popcorn.jpg?resize=701%2C467', valid_from: Time.now.to_date-10.day, valid_through: Time.now.to_date+20.day, available_units: 5, branch_id: 2},
-#   {name: 'Theater ticket', kms_cost: 50, code: 'freetheater', description: 'free theater', url_img:'//www.google.es/search?q=coffe&espv=2&biw=1177&bih=614&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjs-Yrr3tTLAhXERhQKHUb5BZMQ_AUIBigB#tbm=isch&q=theater+tickets&imgrc=XrGwz857NdwU2M%3A', valid_from: Time.now.to_date-5.day, valid_through: Time.now.to_date+25.day, available_units: 4, branch_id: 4},
-#   {name: 'Bike service', kms_cost: 20, code: 'freeservice', description: 'free service', url_img: '/bike.jpeg', valid_from: Time.now.to_date, valid_through: Time.now.to_date+30.day, available_units: 20, branch_id: 5}
-# ])
