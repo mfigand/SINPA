@@ -88,6 +88,6 @@ color: #26A69A;
 
 .employees_body{
   background-image: url('/images/back_running9.jpg');
-  background-repeat: space;
+  background-repeat: no-repeat;
   background-size: cover;
 }

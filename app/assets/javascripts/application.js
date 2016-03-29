@@ -18,9 +18,12 @@
 $(document).on("ready",function(){
   $(".button-collapse").sideNav();
   $('.materialboxed').materialbox();
-  // $('nav').pushpin({ top: $('nav').offset().top });
+
   var url = window.location.pathname.split("/")
   if (url[1] == "companies" && url[2] == "sign_up"){
+    $('#avatar_field').hide();
+  }
+  if (url[1] == "companies"){
     $('#avatar_field').hide();
   }
 })

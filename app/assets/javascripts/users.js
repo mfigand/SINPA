@@ -18,14 +18,12 @@ var getActivity = function (){
   };
 
   function get_kms(response){
-    // debugger
     var sync_acount = $.get('/users/sync_account/nike', response);
     sync_acount.done(get_kms_response);
     sync_acount.fail(get_kmsError);
   };
 
   function get_kms_response(kms_response){
-    // debugger
     $(".message").text("updated synchronization");
     $(".kms_counter").text(kms_response.sinparun_kms);
     $(".total_kms_counter").text(kms_response.total_kms);
@@ -44,7 +42,6 @@ var getActivity = function (){
 
 
   var getActivityRuntastic = function (){
-    // debugger
     $('.kms_counter').empty();
     $('.total_kms_counter').empty();
     $('.level_counter').empty();
@@ -55,14 +52,12 @@ var getActivity = function (){
     };
 
     function get_kms_runtastic(response_runtastic){
-      // debugger
       var sync_acount = $.get('/users/sync_account/runtastic', response_runtastic);
       sync_acount.done(get_kms_runtastic_response);
       sync_acount.fail(get_kmsError);
     };
 
     function get_kms_runtastic_response(kms_response_runtastic){
-      // debugger
       $(".message").text("updated synchronization");
       $(".kms_counter").text(kms_response_runtastic.sinparun_kms);
       $(".total_kms_counter").text(kms_response_runtastic.total_kms);

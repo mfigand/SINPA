@@ -2,12 +2,23 @@
 <html>
 <head>
   <title>Finalproyect</title>
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Lobster::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-track' => true %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <%= javascript_include_tag 'application', 'data-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -58,19 +69,21 @@
       </div>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-footer">
-        <div class="row">
-          <div class="col-xs-6 sign_link" style="text-align: left">Copyright 2016 | By SinpaRun</div>
-          <div class="col-xs-6" style="text-align: right">
-            <a href="https://www.facebook.com/sinparun/"><img class="circle follow" src="/images/facebook.png"></a>
-            <a href="https://twitter.com/@SinpaRun"><img class="circle follow" src="/images/twitter.png"></a>
-            <a href="https://www.instagram.com/"><img class="circle follow" src="/images/instagram.png"></a>
-            <a href="https://es.pinterest.com/"><img class="circle follow" src="/images/pinterest.png"></a>
+    <footer>
+      <div class="panel panel-default">
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-xs-6 sign_link" style="text-align: left">Copyright 2016 | By SinpaRun</div>
+            <div class="col-xs-6" style="text-align: right">
+              <a href="https://www.facebook.com/sinparun/"><img class="circle follow" src="/images/facebook.png"></a>
+              <a href="https://twitter.com/@SinpaRun"><img class="circle follow" src="/images/twitter.png"></a>
+              <a href="https://www.instagram.com/"><img class="circle follow" src="/images/instagram.png"></a>
+              <a href="https://es.pinterest.com/"><img class="circle follow" src="/images/pinterest.png"></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
 
 
 </body>
