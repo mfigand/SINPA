@@ -30,22 +30,23 @@ var map;
       longitude.push(long);
     });
 
-    rewards_company = [];
-    $('.js-rewards-company').each(function(){
-      var reward = $(this).data('rewards-company');
-      rewards_company.push(reward);
+    name_company = [];
+    $('.js-name-company').each(function(){
+      var nameCompany = $(this).data('name-company');
+      name_company.push(nameCompany);
     })
 
     var markersPosition = {
       lat: latitude,
       lng: longitude
      };
-     var rewardsCompany = {
-       rewardsArray: rewards_company
-      };
+
+    var company = {
+      name: name_company
+     };
 
      createRewardsMap(myPosition);
-     createRewardsMarker(markersPosition,rewardsCompany);
+     createRewardsMarker(markersPosition,company);
   }
 
   function createRewardsMap(myPosition){
@@ -55,7 +56,7 @@ var map;
      };
     var mapOptions = {
       center: myPosition,
-      zoom: 12
+      zoom: 11
     };
     map = new google.maps.Map($('#rewards_map2')[0], mapOptions);
 
@@ -92,8 +93,8 @@ var map;
      });
   }
 
-  function createRewardsMarker(position,rewardsCompany) {
-    // debugger
+  function createRewardsMarker(position,company) {
+    debugger
     for (i = position.lat.length-1; i >= 0; i--){
       var branch_name = $('.js-rewards-name')[0].innerText;
 
@@ -109,16 +110,16 @@ var map;
        marker.addListener('click', function() {
         infowindow.open(map, marker);
       });
-      var contentString = '<div id="content">'+
+      var contentStringMarker = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<div id="bodyContent">'+
-            '<p><b>Rewards</b>'+
-            '<p>'+rewardsCompany.rewardsArray[i]+'</p>'+
+            '<p><b>Company</b>'+
+            '<p>'+company.name[i]+'</p>'+
             '</div>'+
             '</div>';
       var infowindow = new google.maps.InfoWindow({
-         content: contentString
+         content: contentStringMarker
        });
      }
   }

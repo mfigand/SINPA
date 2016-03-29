@@ -9,10 +9,10 @@
 <span class="js-user-name" data-user-name='<%= "#{current_user.name}" %>'></span>
 <ul>
   <% @branches.each_with_index do |branch, index| %>
-    <li><span class="js-rewards-name" data-rewards-name='<%= "#{branch.name}" %>'></span></li>
-    <li><span class="js-rewards-lat" data-rewards-lat='<%= "#{branch.latitude}" %>'></span></li>
-    <li><span class="js-rewards-long" data-rewards-long='<%= "#{branch.longitude}" %>'></span></li>
-    <li><span class="js-rewards-company" data-rewards-company='<%= branch.company.rewards[index].name %>'></span></li>
+    <li><span class="js-rewards-name" data-rewards-name='<%= branch.name %>'></span></li>
+    <li><span class="js-rewards-lat" data-rewards-lat='<%= branch.latitude %>'></span></li>
+    <li><span class="js-rewards-long" data-rewards-long='<%= branch.longitude %>'></span></li>
+    <li><span class="js-name-company" data-name-company='<%= branch.company.name %>'></span></li>
     <br>
   <% end %>
 </ul>
