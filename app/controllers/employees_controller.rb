@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  # layout "employees"
+  layout "employees"
 
   def index
     @branch = Branch.find(params[:branch_id])

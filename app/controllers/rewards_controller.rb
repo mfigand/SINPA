@@ -18,12 +18,6 @@ class RewardsController < ApplicationController
       params[:filterrific]
     ) or return
     @all_rewards = @filterrific.find.page(params[:page])
-
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
-
   end
 
   def new

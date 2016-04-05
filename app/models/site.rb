@@ -6,7 +6,7 @@ class Site < ActiveRecord::Base
       activityType: "Run",
       activityTimeZone: Time.zone.now-1.day,
       totalDuration: "10:52:26.000",
-      totalDistance: 640
+      totalDistance: 795
     }
   end
 
@@ -16,7 +16,7 @@ class Site < ActiveRecord::Base
       activityType: "Run",
       activityTimeZone: Time.zone.now-1.day,
       totalDuration: "10:52:26.000",
-      totalDistance: 200
+      totalDistance: 220
     }
   end
 

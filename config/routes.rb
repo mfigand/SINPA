@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :employees
   devise_for :companies
   devise_for :users
-  # get 'user_root' => redirect("/users/rewards")
 
   root to: "site#users_home"
 

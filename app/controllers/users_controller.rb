@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # layout "users"
+  layout "users"
   before_action :authenticate_user!, except: :update
 
   def profile
@@ -46,12 +46,10 @@ class UsersController < ApplicationController
  end
 
  def sync_account_runtastic
-  #  binding.pry
    if current_user.kms.length == 0
      set_new_runner = User.new_runner_runtastic(current_user, params)
      render json: set_new_runner, status: 201
    elsif current_user.kms[0].runtastic_last_total_kms == 0
-    #  binding.pry
      set_new_runtastic_account = User.new_runtastic_account(current_user, params)
      render json: set_new_runtastic_account, status: 201
    else
